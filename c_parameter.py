@@ -133,7 +133,7 @@ N_max = 12
 N_target = 5
 C_list = np.arange(1,7,0.05)
 num_samples = 1000
-filename = './BED_t72_n12_1000.hdf5'
+filename = 'data/BED_t72_n12_1000.hdf5'
 plot = 1
 write = 0
 
