@@ -38,6 +38,7 @@ def doses(input_dict, input_sets):
     def sub_multiple(input_dict, input_sets):
         output = afx.multiple('frac', input_dict, input_sets)
         dose_list = output.physical_doses
+        # oar_dose = np.nansum(output.oar_doses)
         return np.count_nonzero(~np.isnan(dose_list))
 
     # multiple = np.vectorize(sub_multiple, otypes=[dict, dict], excluded=['algorithm'])
@@ -52,5 +53,8 @@ for i in range(n_patients):
 plans_hist = np.histogram(plans, bins=np.arange(0.5,n_frac +1,1))
 print(plans_hist)
 
-plt.hist(plans, bins=np.arange(0.5,n_frac +1,1))
+fig, ax = plt.subplots(1,1)
+ax.hist(plans, bins=np.arange(0.5,n_frac +1,1))
+fig.supxlabel("number of fractions")
+fig.supylabel("number of patients")
 plt.show()
