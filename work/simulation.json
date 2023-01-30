@@ -1,7 +1,7 @@
 {
 "n_patients": 40,
-"fixed_mean_sample": 1,
-"fixed_std_sample": 0,
+"fixed_mean_sample": 0.9,
+"fixed_std_sample": 0.04,
 "sf_low": 0.7,
 "sf_high": 1.1
 }
