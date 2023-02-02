@@ -6,7 +6,7 @@ requires = [
 ]
 
 [project]
-name = "adaptfx"
+name = "adaptsim"
 description = "Package for simulating dose fractionation therapy in MR guided Adaptive Radiotherapy"
 authors = [
     { name = "Janic Tom Weber", email = "janic.weber@uzh.ch"},
@@ -22,6 +22,7 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
+    "adaptfx==0.1.1",
     "numpy==1.24.1",
     "scipy==1.10.0",
     "matplotlib==3.6.3",

@@ -2,16 +2,10 @@
 import argparse
 import json
 import adaptfx as afx
-# import adaptsim as afs
+import adaptsim as afs
 import numpy as np
 import sys
 nme = __name__
-
-ALL_SIM_DICT = {'n_patients':None,
-                        'fixed_mean_sample':None,
-                        'fixed_std_sample':None}
-
-KEY_DICT_SIM = {'sim': list(ALL_SIM_DICT)}
 
 class MC_object():
     """
@@ -45,7 +39,7 @@ class MC_object():
         except KeyError:
             afx.aft_error(f'"simulation_keys" is missing in : "{simulation_filename}"', nme)
         else:
-            simulation_dict = afx.key_reader(KEY_DICT_SIM, ALL_SIM_DICT, raw_keys, 'sim')
+            simulation_dict = afx.key_reader(afs.KEY_DICT_SIM, afs.ALL_SIM_DICT, raw_keys, 'sim')
             afx.aft_message_dict('simulation', simulation_dict, nme)
 
         self.algorithm = model.algorithm
