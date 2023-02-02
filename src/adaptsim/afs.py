@@ -2,9 +2,16 @@
 import argparse
 import json
 import adaptfx as afx
+# import adaptsim as afs
 import numpy as np
 import sys
 nme = __name__
+
+ALL_SIM_DICT = {'n_patients':None,
+                        'fixed_mean_sample':None,
+                        'fixed_std_sample':None}
+
+KEY_DICT_SIM = {'sim': list(ALL_SIM_DICT)}
 
 class MC_object():
     """
@@ -18,10 +25,10 @@ class MC_object():
         try: # check if file can be opened
             with open(simulation_filename, 'r') as f:
                 read_in = f.read()
-            simulation_dict = json.loads(read_in)
+            raw_simulation_dict = json.loads(read_in)
         except TypeError:
             if isinstance(simulation_filename, dict):
-                simulation_dict = simulation_filename
+                raw_simulation_dict = simulation_filename
             else:
                 afx.aft_error(f'"{simulation_filename}" not a filename or dict', nme)
         except SyntaxError as syntax_err:
@@ -32,6 +39,14 @@ class MC_object():
             afx.aft_error(f'decode error in "{simulation_filename}", {decode_err}', nme)
         except:
             afx.aft_error(f'error in "{simulation_filename}", {sys.exc_info()}', nme)
+
+        try: # check if simulation_keys exists and is a dictionnary
+            raw_keys = raw_simulation_dict['simulation_keys']
+        except KeyError:
+            afx.aft_error(f'"simulation_keys" is missing in : "{simulation_filename}"', nme)
+        else:
+            simulation_dict = afx.key_reader(KEY_DICT_SIM, ALL_SIM_DICT, raw_keys, 'sim')
+            afx.aft_message_dict('simulation', simulation_dict, nme)
 
         self.algorithm = model.algorithm
         self.log = model.log
@@ -103,7 +118,6 @@ def main():
     args = parser.parse_args(args=None if sys.argv[1:] else ['--help'])
     sim = MC_object(args.fractionation, args.simulation)
 
-    print(sim.keys_model, sim.keys_simulation)
     sim.simulate()
 
     # afx.aft_message('start session...', nme, 1)
