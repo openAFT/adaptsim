@@ -50,4 +50,4 @@ where = ["src"]
 include = ["*"]
 
 [project.scripts]
-aft = "adaptsim.ast:main"
+ast = "adaptsim.ast:main"
