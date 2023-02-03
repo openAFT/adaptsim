@@ -34,6 +34,13 @@ class MC_object():
         except:
             afx.aft_error(f'error in "{simulation_filename}", {sys.exc_info()}', nme)
 
+        try:
+            algorithm_simulation = raw_simulation_dict['algorithm']
+        except KeyError as algo_err:
+            afx.aft_error(f'{algo_err} key missing in: "{simulation_filename}"', nme)
+        else:
+            afx.aft_message_info('algorithm simulation:', algorithm_simulation, nme, 1)
+
         try: # check if simulation_keys exists and is a dictionnary
             raw_keys = raw_simulation_dict['simulation_keys']
         except KeyError:
@@ -47,44 +54,37 @@ class MC_object():
         self.log_level = model.log_level
         self.keys_model = model.keys
         self.settings = model.settings
+        self.algorithm_simulation = algorithm_simulation
         self.keys_simulation = afx.DotDict(simulation_dict)
 
-        afx.logging_init(model_filename, self.log, self.log_level)
-        afx.aft_message_info('log level:', self.log_level, nme)
-        afx.aft_message_info('log to file:', self.log, nme)
 
     def simulate(self):
-        n_patients = self.keys_simulation.n_patients 
-        mu = self.keys_simulation.fixed_mean_sample
-        std = self.keys_simulation.fixed_std_sample
-        n_frac = self.keys_model.number_of_fractions
-        plans = np.zeros(n_patients)
-        for i in range(n_patients):
-            self.keys_model.sparing_factors = list(np.random.normal(mu , std, n_frac + 1))
-            output = afx.multiple(self.algorithm, self.keys_model, self.settings)
-            # output.oar_sum output.tumor_sum
-            n_frac_used = np.count_nonzero(~np.isnan(output.physical_doses))
-            plans[i] = n_frac_used
-        plans_hist = np.histogram(plans, bins=np.arange(0.5,n_frac +1,1))
-        print(plans_hist)
+        if self.algorithm_simulation == 'histogram':
+            n_patients = self.keys_simulation.n_patients 
+            mu = self.keys_simulation.fixed_mean_sample
+            std = self.keys_simulation.fixed_std_sample
+            n_frac = self.keys_model.number_of_fractions
+            plans = np.zeros(n_patients)
+            for i in range(n_patients):
+                self.keys_model.sparing_factors = list(np.random.normal(mu , std, n_frac + 1))
+                output = afx.multiple(self.algorithm, self.keys_model, self.settings)
+                # output.oar_sum output.tumor_sum
+                n_frac_used = np.count_nonzero(~np.isnan(output.physical_doses))
+                plans[i] = n_frac_used
+            self.plans_hist = np.histogram(plans, bins=np.arange(0.5,n_frac +1,1))
+            print(self.plans_hist)
 
-
-        
-    
-    def plot(self):
-        out = self.output
-        sets = self.settings
-        if self.settings.plot_policy:
-            afx.plot_val(out.policy.sf, out.policy.states, out.policy.val, out.policy.fractions)
-        if self.settings.plot_values:
-            afx.plot_val(out.value.sf, out.value.states, out.value.val, out.value.fractions)
-        if self.settings.plot_remains:
-            afx.plot_val(out.remains.sf, out.remains.states, out.remains.val, out.remains.fractions)
-
-        if sets.plot_policy or sets.plot_values or sets.plot_remains:
-            afx.show_plot()
-        else:
-            afx.aft_message('nothing to plot', nme, 1)
+    def new(self):
+        if self.algorithm_simulation == 'fraction':
+            c_list = self.keys_simulation.c_list
+            n_fractions = self.keys_model.number_of_fractions
+            c_dose_list = np.zeros((len(c_list), n_fractions))
+            for i, c in enumerate(self.keys_simulation.c_list):
+                self.keys_model.c = c
+                output = afx.multiple(self.algorithm, self.keys_model, self.settings)
+                c_dose_list[i] = output.tumor_doses
+            self.c_dose_list = c_dose_list
+            print(self.c_dose_list)
 
 def main():
     """
@@ -113,6 +113,7 @@ def main():
     sim = MC_object(args.fractionation, args.simulation)
 
     sim.simulate()
+    sim.new()
 
     # afx.aft_message('start session...', nme, 1)
     # sim.simulate()

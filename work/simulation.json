@@ -1,8 +1,10 @@
 {
+"algorithm": "fraction",
 "simulation_keys":
     {
     "n_patients": 40,
     "fixed_mean_sample": 0.9,
-    "fixed_std_sample": 0.04
+    "fixed_std_sample": 0.04,
+    "c_list": [1,20]
     }
 }

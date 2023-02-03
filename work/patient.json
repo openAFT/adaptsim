@@ -4,9 +4,9 @@
 "log": 0,
 "keys": 
 	{
-	"number_of_fractions": 12,
+	"number_of_fractions": 3,
 	"fraction": 0,
-	"sparing_factors": "invalid",
+	"sparing_factors": [1,1, 0.9, 1],
 	"alpha": "invalid",
 	"beta": "invalid",
 	"fixed_prob": 1,
