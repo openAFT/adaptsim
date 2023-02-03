@@ -1,6 +1,34 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from adaptfx import multiple
+from matplotlib import rcParams, cycler
+from matplotlib.ticker import AutoMinorLocator
+
+rcParams['font.family'] = 'sans-serif'
+rcParams['font.sans-serif'] = ['Arial']
+rcParams['font.size'] = 16
+rcParams['axes.linewidth'] = 1.1
+rcParams['axes.labelpad'] = 10.0
+plot_color_cycle = cycler('color', ['000000', '0000FE', 'FE0000', '008001', 'FD8000', '8c564b', 'e377c2', '7f7f7f', 'bcbd22', '17becf'])
+rcParams['axes.prop_cycle'] = plot_color_cycle
+rcParams['axes.xmargin'] = 0
+rcParams['axes.ymargin'] = 0
+rcParams.update({"axes.autolimit_mode" : "round_numbers",
+                 "xtick.major.size"     : 7,
+                 "xtick.minor.size"     : 3.5,
+                 "xtick.major.width"    : 1.1,
+                 "xtick.minor.width"    : 1.1,
+                 "xtick.major.pad"      : 5,
+                 "xtick.minor.visible" : True,
+                 "ytick.major.size"     : 7,
+                 "ytick.minor.size"     : 3.5,
+                 "ytick.major.width"    : 1.1,
+                 "ytick.minor.width"    : 1.1,
+                 "ytick.major.pad"      : 5,
+                 "ytick.minor.visible" : True,
+                 "lines.markersize" : 10,
+                 "lines.markerfacecolor" : "none",
+                 "lines.markeredgewidth"  : 0.8})
 
 #-------------------------------------------------------------------
 typ = 1
@@ -24,14 +52,8 @@ def plot_fraction(fig, ax, dose_array, n_frac, sf, mu, std, const):
     ax.set_ylabel('dose')
     ax.set_xlabel('fraction')
     ax.set_xticks(range(min(x), max(x)+1))
+    ax.tick_params(axis='x', which='minor', bottom=False)
     fig.legend(title='C')
-
-def plot_policy(ax, z, fraction, sf, BEDT):
-    x0,x1 = min(sf), max(sf)
-    y0,y1 = min(BEDT), max(BEDT)
-    policy = ax.imshow(z, cmap='jet', aspect='auto', extent=[x0,x1,y0,y1])
-    ax.set_title(f'fraction={fraction}')
-    return policy
 
 def check_skips(dose, n):
     if dose[n-1] != 0 and dose[n]== 0:
@@ -69,4 +91,5 @@ if typ==1:
         plot_fraction(fig, ax, tumor_dose, n_frac, sf_array, mu, sigma, c)
 
 #------------------------------------------------------------
+plt.tight_layout()
 plt.show()
