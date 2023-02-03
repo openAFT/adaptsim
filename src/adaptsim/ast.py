@@ -71,20 +71,21 @@ class MC_object():
                 # output.oar_sum output.tumor_sum
                 n_frac_used = np.count_nonzero(~np.isnan(output.physical_doses))
                 plans[i] = n_frac_used
-            self.plans_hist = np.histogram(plans, bins=np.arange(0.5,n_frac +1,1))
-            print(self.plans_hist)
-
-    def new(self):
-        if self.algorithm_simulation == 'fraction':
+            afs.plot_hist(plans, n_frac)
+            
+        elif self.algorithm_simulation == 'fraction':
             c_list = self.keys_simulation.c_list
             n_fractions = self.keys_model.number_of_fractions
-            c_dose_list = np.zeros((len(c_list), n_fractions))
+            sf_list = self.keys_model.sparing_factors
+            c_dose_array = np.zeros((len(c_list), n_fractions))
             for i, c in enumerate(self.keys_simulation.c_list):
                 self.keys_model.c = c
                 output = afx.multiple(self.algorithm, self.keys_model, self.settings)
-                c_dose_list[i] = output.tumor_doses
-            self.c_dose_list = c_dose_list
-            print(self.c_dose_list)
+                c_dose_array[i] = output.tumor_doses
+            self.c_dose_list = c_dose_array
+            afs.plot_dose(self.c_dose_list, sf_list, n_fractions, c_list)
+        
+        afs.show_plot()
 
 def main():
     """
@@ -113,7 +114,6 @@ def main():
     sim = MC_object(args.fractionation, args.simulation)
 
     sim.simulate()
-    sim.new()
 
     # afx.aft_message('start session...', nme, 1)
     # sim.simulate()
