@@ -24,8 +24,23 @@ To install the `adaptsim` package
 ```
 $ git clone https://github.com/openAFT/adaptsim.git
 $ cd adaptsim
-$ pip install . -e
+$ pip install -e .
 ```
+
+Install adaptfx with pip
+```
+$ pip install adaptfx
+```
+
+or manually build from source
+```
+$ cd aft_env
+$ source bin/activate
+$ git clone https://github.com/openAFT/adaptfx.git
+$ cd jupyter_env/adaptsim
+$ pip install -e /path/to/aft_env_/adaptfx
+```
+
 
 the command line tool for simulation is then available
 ```

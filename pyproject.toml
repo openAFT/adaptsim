@@ -22,7 +22,6 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 dependencies = [
-    "adaptfx==0.1.1",
     "numpy==1.24.1",
     "scipy==1.10.0",
     "matplotlib==3.6.3",
