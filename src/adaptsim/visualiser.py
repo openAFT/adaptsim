@@ -115,6 +115,57 @@ def plot_val_single(sfs, states, data, fractions, index, label, colmap='turbo', 
 
     return fig
 
+def plot_val_all(sfs, states, data, fractions, label, colmap='turbo', plot_sets=afs.RCPARAMS):
+    plot_sets = {"figure.figsize": (6,4), "text.usetex": False, "text.usetex": True}
+    rcParams.update(plot_sets)
+    [n_grids, _, _] = data.shape
+    # search for optimal rectangular size of subplot grid
+    n_rows = n_columns = int(np.sqrt(n_grids))
+    while n_rows * n_columns < n_grids:
+        if n_rows >= n_columns:
+            n_columns += 1
+        else:
+            n_rows += 1
+    # initiate plot and parameters
+    fig, ax = plt.subplots(n_rows, n_columns)
+    x_min, x_max, y_min, y_max = sfs[0], sfs[-1], states[0], states[-1]
+
+    # create shared colorbar
+    colmin, colmax = np.min(data), np.max(data)
+    normaliser = normalise(colmin, colmax)
+    colormap = cm.get_cmap(colmap)
+    im = cm.ScalarMappable(cmap=colormap, norm=normaliser)
+
+    # loop through the axes
+    try:
+        axs = ax.ravel()
+    except:
+        # in case ax is a 1x1 subplot
+        axs = np.array([ax])
+
+    # turn off axes
+    for a in axs:
+        a.axis(False)
+
+    for i, pol in enumerate(data):
+        axs[i].axis(True)
+        axs[i].imshow(pol, interpolation=None, origin='upper',
+            norm=normaliser, cmap=colormap, aspect='auto',
+            extent=[x_min, x_max, y_min, y_max])
+        axs[i].set_title(fractions[i], loc='left')
+        try: # get rid of inner axes values
+            axs[i].label_outer()
+        except:
+            pass
+
+    fig.supxlabel(r'$\delta$')
+    fig.supylabel(r'$B^{T}$')
+
+    fig.tight_layout()
+    fig.colorbar(mappable=im, ax=axs.tolist(), label=label)
+
+    return fig
+
 def save_plot(fig, filename):
     basename = filename.rsplit('.')[0]
     fig.savefig(f'{basename}.pdf', bbox_inches='tight', format='pdf')
