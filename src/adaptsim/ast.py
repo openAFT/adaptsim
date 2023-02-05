@@ -56,6 +56,7 @@ class MC_object():
         self.settings = model.settings
         self.algorithm_simulation = algorithm_simulation
         self.keys_simulation = afx.DotDict(simulation_dict)
+        self.simulation_filename = simulation_filename
 
 
     def simulate(self):
@@ -71,7 +72,10 @@ class MC_object():
                 # output.oar_sum output.tumor_sum
                 n_frac_used = np.count_nonzero(~np.isnan(output.physical_doses))
                 plans[i] = n_frac_used
-            afs.plot_hist(plans, n_frac)
+            hist = afs.plot_hist(plans, n_frac)
+            
+            if self.keys_simulation.plot_bool:
+                afs.save_plot(hist, self.simulation_filename)
             
         elif self.algorithm_simulation == 'fraction':
             c_list = self.keys_simulation.c_list
@@ -83,7 +87,10 @@ class MC_object():
                 output = afx.multiple(self.algorithm, self.keys_model, self.settings)
                 c_dose_array[i] = output.tumor_doses
             self.c_dose_list = c_dose_array
-            afs.plot_dose(self.c_dose_list, sf_list, n_fractions, c_list)
+            fracs = afs.plot_dose(self.c_dose_list, sf_list, n_fractions, c_list)
+
+            if self.keys_simulation.plot_bool:
+                afs.save_plot(fracs, self.simulation_filename)
         
         afs.show_plot()
 

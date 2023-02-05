@@ -67,7 +67,7 @@ def plot_dose(data, sf_list, n_frac, c_list):
     ax2.legend(lines + cross, labels + clabels, loc=0)
     fig.tight_layout()
 
-    return ax
+    return fig
 
 def plot_hist(data, n_frac):
     """
@@ -94,7 +94,11 @@ def plot_hist(data, n_frac):
     ax.set_xlabel('fraction')
     fig.tight_layout()
 
-    return ax
+    return fig
+
+def save_plot(fig, filename):
+    basename = filename.rsplit('.')[0]
+    fig.savefig(f'{basename}.pdf', bbox_inches='tight', format='pdf')
 
 def show_plot():
     plt.show()
