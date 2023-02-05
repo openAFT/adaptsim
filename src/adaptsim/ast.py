@@ -60,11 +60,12 @@ class MC_object():
 
 
     def simulate(self):
+        use_tex = self.keys_simulation.use_tex
+        n_frac = self.keys_model.number_of_fractions
         if self.algorithm_simulation == 'histogram':
             n_patients = self.keys_simulation.n_patients 
             mu = self.keys_simulation.fixed_mean_sample
             std = self.keys_simulation.fixed_std_sample
-            n_frac = self.keys_model.number_of_fractions
             plans = np.zeros(n_patients)
             for i in range(n_patients):
                 self.keys_model.sparing_factors = list(np.random.normal(mu , std, n_frac + 1))
@@ -72,22 +73,21 @@ class MC_object():
                 # output.oar_sum output.tumor_sum
                 n_frac_used = np.count_nonzero(~np.isnan(output.physical_doses))
                 plans[i] = n_frac_used
-            hist = afs.plot_hist(plans, n_frac)
+            hist = afs.plot_hist(plans, n_frac, use_tex)
 
             if self.keys_simulation.plot_bool:
                 afs.save_plot(hist, self.simulation_filename)
             
         elif self.algorithm_simulation == 'fraction':
             c_list = self.keys_simulation.c_list
-            n_fractions = self.keys_model.number_of_fractions
             sf_list = self.keys_model.sparing_factors
-            c_dose_array = np.zeros((len(c_list), n_fractions))
+            c_dose_array = np.zeros((len(c_list), n_frac))
             for i, c in enumerate(self.keys_simulation.c_list):
                 self.keys_model.c = c
                 output = afx.multiple(self.algorithm, self.keys_model, self.settings)
                 c_dose_array[i] = output.tumor_doses
             self.c_dose_list = c_dose_array
-            fracs = afs.plot_dose(self.c_dose_list, sf_list, n_fractions, c_list)
+            fracs = afs.plot_dose(self.c_dose_list, sf_list, n_frac, c_list, use_tex)
 
             if self.keys_simulation.plot_bool:
                 afs.save_plot(fracs, self.simulation_filename)

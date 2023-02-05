@@ -1,37 +1,10 @@
 # -*- coding: utf-8 -*-
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.colors import Normalize as normalise
-import matplotlib.cm as cm
-from matplotlib import rcParams, cycler
+from matplotlib import rcParams
+import adaptsim as afs
 
-rcParams['font.family'] = 'sans-serif'
-rcParams['font.sans-serif'] = ['Arial']
-rcParams['axes.linewidth'] = 1.1
-rcParams['axes.labelpad'] = 10.0
-plot_color_cycle = cycler('color', ['000000', '0000FE', 'FE0000', '008001', 'FD8000','8c564b', 'e377c2', '7f7f7f', 'bcbd22', '17becf'])
-plot_line_cycle = cycler('linestyle', ['-', '--', ':', '-.'])
-rcParams['axes.prop_cycle'] = plot_line_cycle
-rcParams['axes.xmargin'] = 0.05
-rcParams['axes.ymargin'] = 0.05
-rcParams.update({"axes.autolimit_mode"  : "data",
-                 "xtick.major.size"     : 7,
-                 "xtick.minor.size"     : 3.5,
-                 "xtick.major.width"    : 1.1,
-                 "xtick.minor.width"    : 1.1,
-                 "xtick.major.pad"      : 5,
-                 "xtick.minor.visible"  : True,
-                 "ytick.major.size"     : 7,
-                 "ytick.minor.size"     : 3.5,
-                 "ytick.major.width"    : 1.1,
-                 "ytick.minor.width"    : 1.1,
-                 "ytick.major.pad"      : 5,
-                 "ytick.minor.visible"  : True,
-                 "lines.markersize"     : 7,
-                 "lines.markerfacecolor" : "none",
-                 "lines.markeredgewidth"  : 0.8})
-
-def plot_dose(data, sf_list, n_frac, c_list):
+def plot_dose(data, sf_list, n_frac, c_list, use_tex=False):
     """
     creates a plot of applied dose and corresponding sparing factor
 
@@ -48,18 +21,21 @@ def plot_dose(data, sf_list, n_frac, c_list):
     ax : matplotlib.pyplot.axes
 
     """
+    afs.RCPARAMS["text.usetex"] = use_tex
+    rcParams.update(afs.RCPARAMS)
+
     x = np.arange(1, n_frac+1)
-    fig, ax = plt.subplots(1,1, figsize=(6,4))
+    fig, ax = plt.subplots(1,1)
     for i, c in enumerate(c_list):
-        ax.plot(x, data[i], label=f'c={c}', alpha=0.5, color='black')
+        ax.plot(x, data[i], label=rf'$C={c}$', alpha=0.5, color='black')
     ax2 = ax.twinx()
-    ax2.scatter(x, sf_list[1:], label=r'$\delta$',
+    ax2.scatter(x, sf_list[1:], label=r'$\delta_t$',
         marker='1', color='black')
     ax2.invert_yaxis()
-    ax2.set_ylabel('sparing factor')
+    ax2.set_ylabel(r'$\delta$')
     # ax.legend(title='sf')
-    ax.set_ylabel('dose')
-    ax.set_xlabel('fraction')
+    ax.set_ylabel(r'BED$_3$')
+    ax.set_xlabel(r'Fraction $t$')
     ax.set_xticks(range(min(x), max(x)+1))
     ax.tick_params(axis='x', which='minor', bottom=False)
     lines, labels = ax.get_legend_handles_labels()
@@ -69,7 +45,7 @@ def plot_dose(data, sf_list, n_frac, c_list):
 
     return fig
 
-def plot_hist(data, n_frac):
+def plot_hist(data, n_frac, use_tex=False):
     """
     creates a histogram plot of numbers of fractions used
 
@@ -84,14 +60,17 @@ def plot_hist(data, n_frac):
     ax : matplotlib.pyplot.axes
 
     """
+    afs.RCPARAMS["text.usetex"] = use_tex
+    rcParams.update(afs.RCPARAMS)
+    
     x = np.arange(1, n_frac+1)
-    fig, ax = plt.subplots(1,1, figsize=(6,4))
+    fig, ax = plt.subplots(1,1)
     ax.hist(data, bins=x, alpha=0.4, align= 'left',
         histtype= 'stepfilled', color='red')
     ax.set_xticks(range(min(x), max(x)+2))
     ax.tick_params(axis='x', which='minor', bottom=False)
-    ax.set_ylabel('number of patients')
-    ax.set_xlabel('fraction')
+    ax.set_ylabel(r'Number of Patients')
+    ax.set_xlabel(r'Fraction $t$')
     fig.tight_layout()
 
     return fig
