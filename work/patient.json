@@ -27,5 +27,15 @@
 	"sf_low": 0.7,
 	"sf_high": 1.1,
 	"sf_prob_threshold": 0
+	},
+"algorithm_simulation": "fraction",
+"keys_simulation":
+	{
+	"n_patients": 40,
+	"fixed_mean_sample": 0.9,
+	"fixed_std_sample": 0.04,
+	"c_list": [3.5, 4, 4.7],
+	"save": 0,
+	"use_tex": 1
 	}
 }
