@@ -94,6 +94,21 @@ class MC_object():
 
             if self.keys_simulation.save:
                 afs.save_plot(fracs, self.simulation_filename)
+
+        elif self.algorithm_simulation == 'policy':
+            out = afx.multiple(self.algorithm, self.keys_model, self.settings)
+            if self.settings.plot_policy:
+                policy = afs.plot_val_single(out.policy.sf, out.policy.states, out.policy.val,
+                out.policy.fractions, r'BED$_{10}$', 'turbo', plot_sets)
+            if self.settings.plot_values:
+                values = afs.plot_val_single(out.value.sf, out.value.states, out.value.val,
+                out.value.fractions, 'Value', 'viridis', plot_sets)
+            if self.settings.plot_remains:
+                remains = afs.plot_val_single(out.remains.sf, out.remains.states, out.remains.val,
+                out.remains.fractions, 'Expected Remaining Number', 'plasma', plot_sets)
+
+            # if self.keys_simulation.save:
+            #     afs.save_plot(policy, self.simulation_filename, plot_sets)
         
     def plot(self):
         afs.show_plot()

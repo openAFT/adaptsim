@@ -2,6 +2,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib import rcParams
+from matplotlib.colors import Normalize as normalise
+import matplotlib.cm as cm
 import adaptsim as afs
 
 def plot_dose(data, sf_list, n_frac, c_list, plot_sets=afs.RCPARAMS):
@@ -70,6 +72,50 @@ def plot_hist(data, n_frac, plot_sets=afs.RCPARAMS):
     ax.set_ylabel(r'Number of Patients')
     ax.set_xlabel(r'Fraction $t$')
     fig.tight_layout()
+
+    return fig
+
+def plot_val_single(sfs, states, data, fractions, label, colmap='turbo', plot_sets=afs.RCPARAMS):
+    rcParams.update(plot_sets)
+    [n_grids, _, _] = data.shape
+    # search for optimal rectangular size of subplot grid
+    n_rows = n_columns = int(np.sqrt(n_grids))
+    while n_rows * n_columns < n_grids:
+        if n_rows >= n_columns:
+            n_columns += 1
+        else:
+            n_rows += 1
+    # initiate plot and parameters
+    fig, ax = plt.subplots(n_rows, n_columns)
+    x_min, x_max, y_min, y_max = sfs[0], sfs[-1], states[0], states[-1]
+
+    # create shared colorbar
+    colmin, colmax = np.min(data), np.max(data)
+    normaliser = normalise(colmin, colmax)
+    colormap = cm.get_cmap(colmap)
+    im = cm.ScalarMappable(cmap=colormap, norm=normaliser)
+
+    # loop through the axes
+    try:
+        axs = ax.ravel()
+    except:
+        # in case ax is a 1x1 subplot
+        axs = np.array([ax])
+    
+    for i, pol in enumerate(data):
+        axs[i].imshow(pol, interpolation=None, origin='upper',
+            norm=normaliser, cmap=colormap, aspect='auto',
+            extent=[x_min, x_max, y_min, y_max])
+        axs[i].set_title(rf'${fractions[i]}$', loc='left')
+        try: # get rid of inner axes values
+            axs[i].label_outer()
+        except:
+            pass
+
+    fig.supxlabel(r'$\delta$')
+    fig.supylabel(r'$B^{T}$')
+    fig.tight_layout()
+    fig.colorbar(mappable=im, ax=axs.tolist(), label=label)
 
     return fig
 
