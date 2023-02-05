@@ -75,7 +75,7 @@ def plot_hist(data, n_frac, plot_sets=afs.RCPARAMS):
 
     return fig
 
-def plot_val_single(sfs, states, data, fractions, label, colmap='turbo', plot_sets=afs.RCPARAMS):
+def plot_val_single(sfs, states, data, fractions, index, label, colmap='turbo', plot_sets=afs.RCPARAMS):
     rcParams.update(plot_sets)
     [n_grids, _, _] = data.shape
     # search for optimal rectangular size of subplot grid
@@ -86,7 +86,7 @@ def plot_val_single(sfs, states, data, fractions, label, colmap='turbo', plot_se
         else:
             n_rows += 1
     # initiate plot and parameters
-    fig, ax = plt.subplots(n_rows, n_columns)
+    fig, ax = plt.subplots(1, 1)
     x_min, x_max, y_min, y_max = sfs[0], sfs[-1], states[0], states[-1]
 
     # create shared colorbar
@@ -101,19 +101,15 @@ def plot_val_single(sfs, states, data, fractions, label, colmap='turbo', plot_se
     except:
         # in case ax is a 1x1 subplot
         axs = np.array([ax])
-    
-    for i, pol in enumerate(data):
-        axs[i].imshow(pol, interpolation=None, origin='upper',
-            norm=normaliser, cmap=colormap, aspect='auto',
-            extent=[x_min, x_max, y_min, y_max])
-        axs[i].set_title(rf'${fractions[i]}$', loc='left')
-        try: # get rid of inner axes values
-            axs[i].label_outer()
-        except:
-            pass
 
-    fig.supxlabel(r'$\delta$')
-    fig.supylabel(r'$B^{T}$')
+    i = np.where(fractions==index)[0][0]
+    axs[0].imshow(data[i], interpolation='bilinear', origin='upper',
+        norm=normaliser, cmap=colormap, aspect='auto',
+        extent=[x_min, x_max, y_min, y_max])
+    axs[0].set_title(rf'${fractions[i]}$', loc='left')
+    axs[0].set_xlabel(r'$\delta$')
+    axs[0].set_ylabel(r'$B^{T}$')
+
     fig.tight_layout()
     fig.colorbar(mappable=im, ax=axs.tolist(), label=label)
 
