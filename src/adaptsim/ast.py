@@ -73,7 +73,7 @@ class MC_object():
                 n_frac_used = np.count_nonzero(~np.isnan(output.physical_doses))
                 plans[i] = n_frac_used
             hist = afs.plot_hist(plans, n_frac)
-            
+
             if self.keys_simulation.plot_bool:
                 afs.save_plot(hist, self.simulation_filename)
             
@@ -92,6 +92,7 @@ class MC_object():
             if self.keys_simulation.plot_bool:
                 afs.save_plot(fracs, self.simulation_filename)
         
+    def plot(self):
         afs.show_plot()
 
 def main():
@@ -120,22 +121,11 @@ def main():
     args = parser.parse_args(args=None if sys.argv[1:] else ['--help'])
     sim = MC_object(args.fractionation, args.simulation)
 
+    afx.aft_message('start session...', nme, 1)
     sim.simulate()
-
-    # afx.aft_message('start session...', nme, 1)
-    # sim.simulate()
-    # afx.timing(start)
-
-    # # show retrospective dose prescribtion
-    # afx.aft_message_list('physical dose:', plan.output.physical_doses, nme, 1)
-    # afx.aft_message_list('tumor dose:', plan.output.tumor_doses, nme)
-    # afx.aft_message_list('oar dose:', plan.output.oar_doses, nme)
-
-    # # show accumulated dose
-    # afx.aft_message_info('accumulated oar dose:', plan.output.oar_sum, nme, 1)
-    # afx.aft_message_info('accumulated tumor dose:', plan.output.tumor_sum, nme)
-    # sim.plot()
-    # afx.aft_message('close session...', nme, 1)
+    afx.timing(start)
+    sim.plot()
+    afx.aft_message('close session...', nme, 1)
 
 
 if __name__ == '__main__':
