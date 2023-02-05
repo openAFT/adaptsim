@@ -61,7 +61,7 @@ class MC_object():
 
     def simulate(self):
         plot_sets = afs. RCPARAMS
-        plot_sets["text.usetex"] = self.keys_simulation.use_tex
+        plot_sets["text.usetex"] = self.keys_simulation.usetex
         plot_sets["figure.figsize"] = self.keys_simulation.figsize
         plot_sets["font.size"] = self.keys_simulation.fontsize
         n_frac = self.keys_model.number_of_fractions
@@ -114,13 +114,13 @@ class MC_object():
             out = afx.multiple(self.algorithm, self.keys_model, self.settings)
             if self.settings.plot_policy:
                 poli = afs.plot_val_all(out.policy.sf, out.policy.states, out.policy.val,
-                out.policy.fractions, 'turbo', plot_sets)
+                out.policy.fractions, r'BED$_{10}$', 'turbo', plot_sets)
             if self.settings.plot_values:
                 poli = afs.plot_val_all(out.value.sf, out.value.states, out.value.val,
-                out.value.fractions, 'viridis', plot_sets)
+                out.value.fractions, 'Value', 'viridis', plot_sets)
             if self.settings.plot_remains:
                 poli = afs.plot_val_all(out.remains.sf, out.remains.states, out.remains.val,
-                out.remains.fractions, 'plasma', plot_sets)
+                out.remains.fractions, 'Expected Remaining Number', 'plasma', plot_sets)
 
             if self.keys_simulation.save:
                 afs.save_plot(poli, self.simulation_filename, plot_sets)

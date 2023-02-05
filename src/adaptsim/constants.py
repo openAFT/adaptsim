@@ -8,7 +8,7 @@ ALL_SIM_DICT = {'n_patients': None,
                 'figsize': (6,4),
                 'fontsize': 14,
                 'save': 0,
-                'use_tex': 0
+                'usetex': 0
                 }
 
 KEY_DICT_SIM = {'sim': list(ALL_SIM_DICT)}
