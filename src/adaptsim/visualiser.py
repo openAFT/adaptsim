@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from matplotlib import rcParams
 import adaptsim as afs
 
-def plot_dose(data, sf_list, n_frac, c_list, use_tex=False):
+def plot_dose(data, sf_list, n_frac, c_list, plot_sets=afs.RCPARAMS):
     """
     creates a plot of applied dose and corresponding sparing factor
 
@@ -21,8 +21,7 @@ def plot_dose(data, sf_list, n_frac, c_list, use_tex=False):
     ax : matplotlib.pyplot.axes
 
     """
-    afs.RCPARAMS["text.usetex"] = use_tex
-    rcParams.update(afs.RCPARAMS)
+    rcParams.update(plot_sets)
 
     x = np.arange(1, n_frac+1)
     fig, ax = plt.subplots(1,1)
@@ -45,7 +44,7 @@ def plot_dose(data, sf_list, n_frac, c_list, use_tex=False):
 
     return fig
 
-def plot_hist(data, n_frac, use_tex=False):
+def plot_hist(data, n_frac, plot_sets=afs.RCPARAMS):
     """
     creates a histogram plot of numbers of fractions used
 
@@ -60,8 +59,7 @@ def plot_hist(data, n_frac, use_tex=False):
     ax : matplotlib.pyplot.axes
 
     """
-    afs.RCPARAMS["text.usetex"] = use_tex
-    rcParams.update(afs.RCPARAMS)
+    rcParams.update(plot_sets)
     
     x = np.arange(1, n_frac+1)
     fig, ax = plt.subplots(1,1)

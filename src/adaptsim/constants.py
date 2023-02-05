@@ -4,8 +4,10 @@ ALL_SIM_DICT = {'n_patients': None,
                 'fixed_mean_sample': None,
                 'fixed_std_sample': None,
                 'c_list': None,
-                'plot_bool': False,
-                'use_tex': False
+                'figsize': (6,4),
+                'fontsize': 14,
+                'save': 0,
+                'use_tex': 0
                 }
 
 KEY_DICT_SIM = {'sim': list(ALL_SIM_DICT)}
