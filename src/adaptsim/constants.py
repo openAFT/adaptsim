@@ -1,11 +1,11 @@
 from matplotlib import cycler, font_manager
 
-ALL_SIM_DICT = {'n_patients': None,
-                'fixed_mean_sample': None,
-                'fixed_std_sample': None,
-                'c_list': None,
+ALL_SIM_DICT = {'n_patients': 0,
+                'fixed_mean_sample': 0,
+                'fixed_std_sample': 0,
+                'c_list': 0,
                 'plot_index': 1,
-                'figsize': (6,4),
+                'figsize': [6,4],
                 'fontsize': 14,
                 'save': 0,
                 'usetex': 0
@@ -16,7 +16,7 @@ KEY_DICT_SIM = {'sim': list(ALL_SIM_DICT)}
 plot_color_cycle = cycler('color', ['000000', '0000FE', 'FE0000', '008001', 'FD8000','8c564b', 'e377c2', '7f7f7f', 'bcbd22', '17becf'])
 plot_line_cycle = cycler('linestyle', ['-', '--', ':', '-.'])
 
-RCPARAMS = {"figure.figsize": (6,4),
+RCPARAMS = {"figure.figsize": [6,4],
             "font.size": 14,
             "text.usetex": False,
             "axes.labelpad": 10,
