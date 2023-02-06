@@ -31,17 +31,17 @@ def plot_dose(data, sf_list, n_frac, c_list, plot_sets=afs.RCPARAMS):
         ax.plot(x, data[i], label=rf'$C={c}$', alpha=0.5, color='black')
     ax2 = ax.twinx()
     ax2.scatter(x, sf_list[1:], label=r'$\delta_t$',
-        marker='1', color='black')
+        marker='^', color='black')
     ax2.invert_yaxis()
     ax2.set_ylabel(r'$\delta$')
     # ax.legend(title='sf')
-    ax.set_ylabel(r'BED$_3$')
+    ax.set_ylabel(r'BED$_{10}$')
     ax.set_xlabel(r'Fraction $t$')
     ax.set_xticks(range(min(x), max(x)+1))
     ax.tick_params(axis='x', which='minor', bottom=False)
     lines, labels = ax.get_legend_handles_labels()
     cross, clabels = ax2.get_legend_handles_labels()
-    ax2.legend(lines + cross, labels + clabels, loc=0)
+    ax2.legend(lines + cross, labels + clabels, loc=1)
     fig.tight_layout()
 
     return fig
@@ -162,7 +162,7 @@ def plot_val_all(sfs, states, data_full, fractions, label, colmap='turbo', plot_
     fig.supylabel(r'$B^{T}$')
 
     # fig.tight_layout()
-    fig.subplots_adjust(wspace=0.3, hspace=0.3, bottom=0.16, right=0.98)
+    fig.subplots_adjust(wspace=0.3, hspace=0.3, bottom=0.13, right=0.98)
     fig.colorbar(mappable=im, ax=axs.tolist(), label=label)
 
     return fig
