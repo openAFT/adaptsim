@@ -94,8 +94,10 @@ class MC_object():
 
             if self.keys_simulation.save:
                 afs.save_plot(fracs, self.simulation_filename)
+            else:
+                self.plot()
 
-        elif self.algorithm_simulation == 'policy':
+        elif self.algorithm_simulation == 'single_state':
             out = afx.multiple(self.algorithm, self.keys_model, self.settings)
             if self.settings.plot_policy:
                 poli = afs.plot_val_single(out.policy.sf, out.policy.states, out.policy.val,
@@ -108,9 +110,11 @@ class MC_object():
                 out.remains.fractions, self.keys_simulation.plot_index, 'Expected Remaining Number', 'plasma', plot_sets)
 
             if self.keys_simulation.save:
-                afs.save_plot(poli, self.simulation_filename, plot_sets)
+                afs.save_plot(poli, self.simulation_filename)
+            else:
+                self.plot()
 
-        elif self.algorithm_simulation == 'policy_all':
+        elif self.algorithm_simulation == 'all_state':
             out = afx.multiple(self.algorithm, self.keys_model, self.settings)
             if self.settings.plot_policy:
                 poli = afs.plot_val_all(out.policy.sf, out.policy.states, out.policy.val,
@@ -123,7 +127,9 @@ class MC_object():
                 out.remains.fractions, 'Expected Remaining Number', 'plasma', plot_sets)
 
             if self.keys_simulation.save:
-                afs.save_plot(poli, self.simulation_filename, plot_sets)
+                afs.save_plot(poli, self.simulation_filename)
+            else:
+                self.plot()
         
     def plot(self):
         afs.show_plot()
@@ -150,7 +156,6 @@ def main():
     afx.aft_message('start session...', nme, 1)
     sim.simulate()
     afx.timing(start)
-    sim.plot()
     afx.aft_message('close session...', nme, 1)
 
 
