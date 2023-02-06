@@ -103,7 +103,7 @@ def plot_val_single(sfs, states, data, fractions, index, label, colmap='turbo', 
         axs = np.array([ax])
 
     i = np.where(fractions==index)[0][0]
-    axs[0].imshow(data[i], interpolation='bilinear', origin='upper',
+    axs[0].imshow(data[i], interpolation=None, origin='upper',
         norm=normaliser, cmap=colormap, aspect='auto',
         extent=[x_min, x_max, y_min, y_max])
     axs[0].set_title(rf'${fractions[i]}$', loc='left')
@@ -115,8 +115,8 @@ def plot_val_single(sfs, states, data, fractions, index, label, colmap='turbo', 
 
     return fig
 
-def plot_val_all(sfs, states, data, fractions, label, colmap='turbo', plot_sets=afs.RCPARAMS):
-    plot_sets = {"figure.figsize": (6,4), "text.usetex": False, "text.usetex": True}
+def plot_val_all(sfs, states, data_full, fractions, label, colmap='turbo', plot_sets=afs.RCPARAMS):
+    data = data_full[:-1]
     rcParams.update(plot_sets)
     [n_grids, _, _] = data.shape
     # search for optimal rectangular size of subplot grid
@@ -131,7 +131,7 @@ def plot_val_all(sfs, states, data, fractions, label, colmap='turbo', plot_sets=
     x_min, x_max, y_min, y_max = sfs[0], sfs[-1], states[0], states[-1]
 
     # create shared colorbar
-    colmin, colmax = np.min(data), np.max(data)
+    colmin, colmax = np.min(data_full), np.max(data_full)
     normaliser = normalise(colmin, colmax)
     colormap = cm.get_cmap(colmap)
     im = cm.ScalarMappable(cmap=colormap, norm=normaliser)
@@ -161,7 +161,8 @@ def plot_val_all(sfs, states, data, fractions, label, colmap='turbo', plot_sets=
     fig.supxlabel(r'$\delta$')
     fig.supylabel(r'$B^{T}$')
 
-    fig.tight_layout()
+    # fig.tight_layout()
+    fig.subplots_adjust(wspace=0.3, hspace=0.3, bottom=0.16, right=0.98)
     fig.colorbar(mappable=im, ax=axs.tolist(), label=label)
 
     return fig
