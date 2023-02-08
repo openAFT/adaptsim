@@ -83,14 +83,17 @@ class MC_object():
             
         elif self.algorithm_simulation == 'fraction':
             c_list = self.keys_simulation.c_list
+            n_c = len(c_list)
             sf_list = self.keys_model.sparing_factors
-            c_dose_array = np.zeros((len(c_list), n_frac))
+            c_dose_array = np.zeros((n_c, n_frac))
+            oar_sum_array = np.zeros((n_c))
             for i, c in enumerate(self.keys_simulation.c_list):
                 self.keys_model.c = c
                 output = afx.multiple(self.algorithm, self.keys_model, self.settings)
                 c_dose_array[i] = output.tumor_doses
+                oar_sum_array[i] = output.oar_sum
             self.c_dose_list = c_dose_array
-            fracs = afs.plot_dose(self.c_dose_list, sf_list, n_frac, c_list, plot_sets)
+            fracs = afs.plot_dose(self.c_dose_list, sf_list, n_frac, c_list, oar_sum_array, plot_sets)
 
             if self.keys_simulation.save:
                 afs.save_plot(fracs, self.simulation_filename)
@@ -101,10 +104,10 @@ class MC_object():
             out = afx.multiple(self.algorithm, self.keys_model, self.settings)
             if self.settings.plot_policy:
                 poli = afs.plot_val_single(out.policy.sf, out.policy.states, out.policy.val,
-                out.policy.fractions, self.keys_simulation.plot_index, r'BED$_{10}$', 'turbo', plot_sets)
+                out.policy.fractions, self.keys_simulation.plot_index, r'Policy $\pi$ in BED$_{10}$', 'turbo', plot_sets)
             if self.settings.plot_values:
                 poli = afs.plot_val_single(out.value.sf, out.value.states, out.value.val,
-                out.value.fractions, self.keys_simulation.plot_index, 'Value', 'viridis', plot_sets)
+                out.value.fractions, self.keys_simulation.plot_index, r'Value $v$', 'viridis', plot_sets)
             if self.settings.plot_remains:
                 poli = afs.plot_val_single(out.remains.sf, out.remains.states, out.remains.val,
                 out.remains.fractions, self.keys_simulation.plot_index, 'Expected Remaining Number', 'plasma', plot_sets)
@@ -118,10 +121,10 @@ class MC_object():
             out = afx.multiple(self.algorithm, self.keys_model, self.settings)
             if self.settings.plot_policy:
                 poli = afs.plot_val_all(out.policy.sf, out.policy.states, out.policy.val,
-                out.policy.fractions, r'BED$_{10}$', 'turbo', plot_sets)
+                out.policy.fractions, r'Policy $\pi$ in BED$_{10}$', 'turbo', plot_sets)
             if self.settings.plot_values:
                 poli = afs.plot_val_all(out.value.sf, out.value.states, out.value.val,
-                out.value.fractions, 'Value', 'viridis', plot_sets)
+                out.value.fractions, r'Value $v$', 'viridis', plot_sets)
             if self.settings.plot_remains:
                 poli = afs.plot_val_all(out.remains.sf, out.remains.states, out.remains.val,
                 out.remains.fractions, 'Expected Remaining Number', 'plasma', plot_sets)
