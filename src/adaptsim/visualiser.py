@@ -6,7 +6,7 @@ from matplotlib.colors import Normalize as normalise
 import matplotlib.cm as cm
 import adaptsim as afs
 
-def plot_dose(data, sf_list, n_frac, c_list, plot_sets=afs.RCPARAMS):
+def plot_dose(data, sf_list, n_frac, c_list, oar_array, plot_sets=afs.RCPARAMS):
     """
     creates a plot of applied dose and corresponding sparing factor
 
@@ -27,21 +27,26 @@ def plot_dose(data, sf_list, n_frac, c_list, plot_sets=afs.RCPARAMS):
 
     x = np.arange(1, n_frac+1)
     fig, ax = plt.subplots(1,1)
-    for i, c in enumerate(c_list):
-        ax.plot(x, data[i], label=rf'$C={c}$', alpha=0.5, color='black')
+    # plot the applied policy
+    N_text = r'{\mathrm{N}}'
+    for i, c_raw in enumerate(c_list):
+        oar_bed = np.round(oar_array[i], 1)
+        c = np.round(c_raw, 1)
+        ax.plot(x, data[i], label=rf'$C={c:.1f}$, $B^{N_text}_{n_frac}={oar_bed}$ Gy',
+            alpha=0.5, color='black')
+    # plot the sparing factors
     ax2 = ax.twinx()
     ax2.scatter(x, sf_list[1:], label=r'$\delta_t$',
         marker='^', color='black')
     ax2.invert_yaxis()
     ax2.set_ylabel(r'$\delta$')
-    # ax.legend(title='sf')
     ax.set_ylabel(r'BED$_{10}$')
     ax.set_xlabel(r'Fraction $t$')
     ax.set_xticks(range(min(x), max(x)+1))
     ax.tick_params(axis='x', which='minor', bottom=False)
     lines, labels = ax.get_legend_handles_labels()
     cross, clabels = ax2.get_legend_handles_labels()
-    ax2.legend(lines + cross, labels + clabels, loc=1)
+    ax2.legend(lines + cross, labels + clabels, loc=0)
     fig.tight_layout()
 
     return fig
@@ -106,11 +111,12 @@ def plot_val_single(sfs, states, data, fractions, index, label, colmap='turbo', 
     axs[0].imshow(data[i], interpolation=None, origin='upper',
         norm=normaliser, cmap=colormap, aspect='auto',
         extent=[x_min, x_max, y_min, y_max])
+    T_text = r'{\mathrm{T}}'
     axs[0].set_title(rf'${fractions[i]}$', loc='left')
     axs[0].set_xlabel(r'$\delta$')
-    axs[0].set_ylabel(r'$B^{T}$')
+    axs[0].set_ylabel(rf'$B^{T_text}$')
 
-    fig.tight_layout()
+    # fig.subplots_adjust(wspace=0.3, hspace=0.3, bottom=0.2, left=0.2, right=0.8)
     fig.colorbar(mappable=im, ax=axs.tolist(), label=label)
 
     return fig
@@ -158,11 +164,12 @@ def plot_val_all(sfs, states, data_full, fractions, label, colmap='turbo', plot_
         except:
             pass
 
+    T_text = r'{\mathrm{T}}'
     fig.supxlabel(r'$\delta$')
-    fig.supylabel(r'$B^{T}$')
+    fig.supylabel(rf'$B^{T_text}$')
 
     # fig.tight_layout()
-    fig.subplots_adjust(wspace=0.3, hspace=0.3, bottom=0.13, right=0.98)
+    fig.subplots_adjust(wspace=0.3, hspace=0.3, bottom=0.13, right=0.95)
     fig.colorbar(mappable=im, ax=axs.tolist(), label=label)
 
     return fig
