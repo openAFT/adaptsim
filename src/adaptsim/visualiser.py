@@ -6,7 +6,7 @@ from matplotlib.colors import Normalize as normalise
 import matplotlib.cm as cm
 import adaptsim as afs
 
-def plot_dose(data, sf_list, n_frac, c_list, oar_array, plot_sets=afs.RCPARAMS):
+def plot_dose(data, sf_list, n_frac, c_list, oar_array, mean, std, plot_sets=afs.RCPARAMS):
     """
     creates a plot of applied dose and corresponding sparing factor
 
@@ -36,7 +36,7 @@ def plot_dose(data, sf_list, n_frac, c_list, oar_array, plot_sets=afs.RCPARAMS):
             alpha=0.5, color='black')
     # plot the sparing factors
     ax2 = ax.twinx()
-    ax2.scatter(x, sf_list[1:], label=r'$\delta_t$',
+    ax2.scatter(x, sf_list[1:], label=rf'$\delta_t \sim \mu={mean}, \sigma={std}$',
         marker='^', color='black')
     ax2.invert_yaxis()
     ax2.set_ylabel(r'$\delta$')
@@ -116,7 +116,7 @@ def plot_val_single(sfs, states, data, fractions, index, label, colmap='turbo', 
     axs[0].set_xlabel(r'$\delta$')
     axs[0].set_ylabel(rf'$B^{T_text}$')
 
-    # fig.subplots_adjust(wspace=0.3, hspace=0.3, bottom=0.2, left=0.2, right=0.8)
+    fig.subplots_adjust(wspace=0.3, hspace=0.3, bottom=0.2, left=0.2, right=0.8)
     fig.colorbar(mappable=im, ax=axs.tolist(), label=label)
 
     return fig
@@ -169,7 +169,7 @@ def plot_val_all(sfs, states, data_full, fractions, label, colmap='turbo', plot_
     fig.supylabel(rf'$B^{T_text}$')
 
     # fig.tight_layout()
-    fig.subplots_adjust(wspace=0.3, hspace=0.3, bottom=0.13, right=0.95)
+    fig.subplots_adjust(wspace=0.3, hspace=0.3, bottom=0.13, right=0.92)
     fig.colorbar(mappable=im, ax=axs.tolist(), label=label)
 
     return fig

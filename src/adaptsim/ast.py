@@ -84,6 +84,8 @@ class MC_object():
         elif self.algorithm_simulation == 'fraction':
             c_list = self.keys_simulation.c_list
             n_c = len(c_list)
+            mu = self.keys_model.fixed_mean
+            std = self.keys_model.fixed_std
             sf_list = self.keys_model.sparing_factors
             c_dose_array = np.zeros((n_c, n_frac))
             oar_sum_array = np.zeros((n_c))
@@ -93,7 +95,8 @@ class MC_object():
                 c_dose_array[i] = output.tumor_doses
                 oar_sum_array[i] = output.oar_sum
             self.c_dose_list = c_dose_array
-            fracs = afs.plot_dose(self.c_dose_list, sf_list, n_frac, c_list, oar_sum_array, plot_sets)
+            fracs = afs.plot_dose(self.c_dose_list, sf_list, n_frac, c_list, oar_sum_array,
+                mu, std, plot_sets)
 
             if self.keys_simulation.save:
                 afs.save_plot(fracs, self.simulation_filename)
