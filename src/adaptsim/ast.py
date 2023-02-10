@@ -150,19 +150,20 @@ def main():
     )
     parser.add_argument(
         '-f',
-        '--filename',
+        '--filenames',
         metavar='',
-        help='input adaptive fractionation instruction filename',
-        type=str
+        help='input adaptive fractionation instruction filename(s)',
+        type=str,
+        nargs='*'
     )
     # In case there is no input show help
     args = parser.parse_args(args=None if sys.argv[1:] else ['--help'])
-    sim = MC_object(args.filename)
-
-    afx.aft_message('start session...', nme, 1)
-    sim.simulate()
-    afx.timing(start)
-    afx.aft_message('close session...', nme, 1)
+    for single_file in args.filenames:
+        sim = MC_object(single_file)
+        afx.aft_message(f'start session for {single_file}', nme, 1)
+        sim.simulate()
+        afx.timing(start)
+        afx.aft_message(f'finish session for {single_file}', nme, 1)
 
 
 if __name__ == '__main__':

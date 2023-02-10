@@ -116,7 +116,7 @@ def plot_val_single(sfs, states, data, fractions, index, label, colmap='turbo', 
     axs[0].set_xlabel(r'$\delta$')
     axs[0].set_ylabel(rf'$B^{T_text}$')
 
-    fig.subplots_adjust(wspace=0.3, hspace=0.3, bottom=0.2, left=0.2, right=0.8)
+    fig.subplots_adjust(wspace=0.3, hspace=0.3, bottom=0.2, left=0.25, right=0.75)
     fig.colorbar(mappable=im, ax=axs.tolist(), label=label)
 
     return fig
@@ -176,7 +176,7 @@ def plot_val_all(sfs, states, data_full, fractions, label, colmap='turbo', plot_
 
 def save_plot(fig, filename):
     basename = filename.rsplit('.')[0]
-    fig.savefig(f'{basename}.pdf', bbox_inches='tight', format='pdf')
+    fig.savefig(f'{basename}.pdf', format='pdf')
 
 def show_plot():
     plt.show()
