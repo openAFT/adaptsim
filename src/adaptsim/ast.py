@@ -124,7 +124,7 @@ class MC_object():
             out = afx.multiple(self.algorithm, self.keys_model, self.settings)
             if self.settings.plot_policy:
                 poli = afs.plot_val_all(out.policy.sf, out.policy.states, out.policy.val,
-                out.policy.fractions, r'Policy $\pi$ in BED$_{10}$', 'turbo', plot_sets)
+                out.policy.fractions, r'Policy $\pi$ in BED$_{10}$ [Gy]', 'turbo', plot_sets)
             if self.settings.plot_values:
                 poli = afs.plot_val_all(out.value.sf, out.value.states, out.value.val,
                 out.value.fractions, r'Value $v$', 'viridis', plot_sets)

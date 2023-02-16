@@ -40,7 +40,7 @@ def plot_dose(data, sf_list, n_frac, c_list, oar_array, mean, std, plot_sets=afs
         marker='^', color='black')
     ax2.invert_yaxis()
     ax2.set_ylabel(r'$\delta$')
-    ax.set_ylabel(r'BED$_{10}$')
+    ax.set_ylabel(r'BED$_{10}$ [Gy]')
     ax.set_xlabel(r'Fraction $t$')
     ax.set_xticks(range(min(x), max(x)+1))
     ax.tick_params(axis='x', which='minor', bottom=False)
@@ -114,7 +114,7 @@ def plot_val_single(sfs, states, data, fractions, index, label, colmap='turbo', 
     T_text = r'{\mathrm{T}}'
     axs[0].set_title(rf'$t = {fractions[i]}$', loc='left')
     axs[0].set_xlabel(r'$\delta$')
-    axs[0].set_ylabel(rf'$B^{T_text}$')
+    axs[0].set_ylabel(rf'$B^{T_text}$ [Gy]')
 
     fig.subplots_adjust(wspace=0.3, hspace=0.3, bottom=0.2, left=0.25, right=0.75)
     fig.colorbar(mappable=im, ax=axs.tolist(), label=label)
@@ -166,7 +166,7 @@ def plot_val_all(sfs, states, data_full, fractions, label, colmap='turbo', plot_
 
     T_text = r'{\mathrm{T}}'
     fig.supxlabel(r'$\delta$')
-    fig.supylabel(rf'$B^{T_text}$')
+    fig.supylabel(rf'$B^{T_text}$ [Gy]')
 
     # fig.tight_layout()
     fig.subplots_adjust(wspace=0.3, hspace=0.3, bottom=0.13, right=0.92)
