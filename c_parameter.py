@@ -162,14 +162,25 @@ print(c_opt_no)
 # print(c_opt)
 
 if plot:
-    fn1 = Fn(N_max, c_no, bn)
+    fn1 = Fn(N_max, c_opt_no, bn)
     # fn2 = Fn(N_max, c, bn)
     plt.scatter(bn[0], bn[1], label='no aft', marker='x')
     # plt.scatter(bn[0], bn[2], label='aft', marker='x')
     plt.scatter(fn1[0], fn1[1], label='noaftlow', marker='1')
     # plt.scatter(fn2[0], fn2[1], label='aftlow', marker='1')
-    plt.plot(x, instance.B_func(x, sf_fit_no))
-    plt.plot(x, instance.B_func(x, sf_fit_no, c))
+    y = instance.B_func(x, sf_fit_no)
+    plt.plot(x, y)
+    y_c = instance.B_func(x, sf_fit_no, c_opt_no)
+    plt.plot(x, y_c)
+
+    for i in range(len(y)):
+        print(f'({np.round(x[i],2)}, {np.round(y[i],2)})')
+
+    for i in range(len(y)):
+        print(f'({np.round(x[i],2)}, {np.round(y_c[i],2)})')
+
+    for i in range(len(bn[0])):
+        print(f'({np.round(bn[0][i],2)}, {np.round(bn[1][i],2)})')
 
     plt.ylabel('cost')
     plt.xlabel('fraction $n$')
