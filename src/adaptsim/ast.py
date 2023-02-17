@@ -61,7 +61,12 @@ class MC_object():
 
     def simulate(self):
         plot_sets = afs. RCPARAMS
-        plot_sets["text.usetex"] = self.keys_simulation.usetex
+        print(self.settings.usetex)
+        if self.settings.usetex:
+            # if CLI specifies global use of latex
+            plot_sets["text.usetex"] = True
+        elif self.keys_simulation.usetex == True:
+            plot_sets["text.usetex"] = True
         plot_sets["figure.figsize"] = self.keys_simulation.figsize
         plot_sets["font.size"] = self.keys_simulation.fontsize
         n_frac = self.keys_model.number_of_fractions
@@ -156,10 +161,18 @@ def main():
         type=str,
         nargs='*'
     )
+    parser.add_argument(
+        '-t',
+        '--usetex',
+        help='matplotlib usetex parameter flag',
+        action='store_true',
+        default=False
+    )
     # In case there is no input show help
     args = parser.parse_args(args=None if sys.argv[1:] else ['--help'])
     for single_file in args.filenames:
         sim = MC_object(single_file)
+        sim.settings.usetex = args.usetex
         afx.aft_message(f'start session for {single_file}', nme, 1)
         sim.simulate()
         afx.timing(start)
