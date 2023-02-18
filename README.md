@@ -2,7 +2,7 @@
 
 ## About
 
-`adaptsim` is the python repository to calculate adaptive fractionation schemes with simulations on real and synthetic data. It also allows to plot sparing factors from real patient data.
+`adaptsim` is the python repository to calculate adaptive fractionation schemes with simulations on real and synthetic data. It also allows to plot sparing factors from real patient data. Essentially it is an example implementation of simulated adaptive fractionated plans using the package `adaptfx`.
 
 
 ## Installation
