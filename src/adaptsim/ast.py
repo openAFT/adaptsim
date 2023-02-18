@@ -61,7 +61,6 @@ class MC_object():
 
     def simulate(self):
         plot_sets = afs. RCPARAMS
-        print(self.settings.usetex)
         if self.settings.usetex:
             # if CLI specifies global use of latex
             plot_sets["text.usetex"] = True
