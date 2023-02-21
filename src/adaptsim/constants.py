@@ -1,14 +1,16 @@
 from matplotlib import cycler, font_manager
 
-ALL_SIM_DICT = {'n_patients': 0,
-                'fixed_mean_sample': 0,
-                'fixed_std_sample': 0,
-                'c_list': 0,
-                'plot_index': 1,
-                'figsize': [6,4],
-                'fontsize': 14,
-                'save': 0,
-                'usetex': 0
+ALL_SIM_DICT = {'n_patients': 0,            # histogram
+                'fixed_mean_sample': 0,     # histogram
+                'fixed_std_sample': 0,      # histogram
+                'c_list': 0,                # fraction
+                'plot_index': 1,            # single state
+                'data_filepath': './',      # data
+                'target': 0,                # data
+                'figsize': [6,4],           # settings
+                'fontsize': 14,             # settings
+                'save': 0,                  # settings
+                'usetex': 0                 # settings
                 }
 
 KEY_DICT_SIM = {'sim': list(ALL_SIM_DICT)}
