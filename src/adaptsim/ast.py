@@ -60,7 +60,7 @@ class MC_object():
 
 
     def simulate(self):
-        plot_sets = afs. RCPARAMS
+        plot_sets = afs.RCPARAMS
         if self.settings.usetex:
             # if CLI specifies global use of latex
             plot_sets["text.usetex"] = True
@@ -69,6 +69,7 @@ class MC_object():
         plot_sets["figure.figsize"] = self.keys_simulation.figsize
         plot_sets["font.size"] = self.keys_simulation.fontsize
         n_frac = self.keys_model.number_of_fractions
+        # case listing for all options
         if self.algorithm_simulation == 'histogram':
             n_patients = self.keys_simulation.n_patients 
             mu = self.keys_simulation.fixed_mean_sample
@@ -80,12 +81,10 @@ class MC_object():
                 # output.oar_sum output.tumor_sum
                 n_frac_used = np.count_nonzero(~np.isnan(output.physical_doses))
                 plans[i] = n_frac_used
-            hist = afs.plot_hist(plans, n_frac, plot_sets)
-
-            if self.keys_simulation.save:
-                afs.save_plot(hist, self.simulation_filename)
+            end_plot = afs.plot_hist(plans, n_frac, plot_sets)
             
         elif self.algorithm_simulation == 'fraction':
+            # plot applied dose, sparing factor dependent on fraction
             c_list = self.keys_simulation.c_list
             n_c = len(c_list)
             mu = self.keys_model.fixed_mean
@@ -99,50 +98,66 @@ class MC_object():
                 c_dose_array[i] = output.tumor_doses
                 oar_sum_array[i] = output.oar_sum
             self.c_dose_list = c_dose_array
-            fracs = afs.plot_dose(self.c_dose_list, sf_list, n_frac, c_list, oar_sum_array,
+            end_plot = afs.plot_dose(self.c_dose_list, sf_list, n_frac, c_list, oar_sum_array,
                 mu, std, plot_sets)
 
-            if self.keys_simulation.save:
-                afs.save_plot(fracs, self.simulation_filename)
-            else:
-                self.plot()
-
         elif self.algorithm_simulation == 'single_state':
+            # plot policy, values or remaining number of fraction for one state
             out = afx.multiple(self.algorithm, self.keys_model, self.settings)
             if self.settings.plot_policy:
-                poli = afs.plot_val_single(out.policy.sf, out.policy.states, out.policy.val,
+                end_plot = afs.plot_val_single(out.policy.sf, out.policy.states, out.policy.val,
                 out.policy.fractions, self.keys_simulation.plot_index, r'Policy $\pi$ in BED$_{10}$', 'turbo', plot_sets)
             if self.settings.plot_values:
-                poli = afs.plot_val_single(out.value.sf, out.value.states, out.value.val,
+                end_plot = afs.plot_val_single(out.value.sf, out.value.states, out.value.val,
                 out.value.fractions, self.keys_simulation.plot_index, r'Value $v$', 'viridis', plot_sets)
             if self.settings.plot_remains:
-                poli = afs.plot_val_single(out.remains.sf, out.remains.states, out.remains.val,
+                end_plot = afs.plot_val_single(out.remains.sf, out.remains.states, out.remains.val,
                 out.remains.fractions, self.keys_simulation.plot_index, 'Expected Remaining Number', 'plasma', plot_sets)
 
-            if self.keys_simulation.save:
-                afs.save_plot(poli, self.simulation_filename)
-            else:
-                self.plot()
-
         elif self.algorithm_simulation == 'all_state':
+            # plot all policy, values or remaining number of fraction except for the last
             out = afx.multiple(self.algorithm, self.keys_model, self.settings)
             if self.settings.plot_policy:
-                poli = afs.plot_val_all(out.policy.sf, out.policy.states, out.policy.val,
+                end_plot = afs.plot_val_all(out.policy.sf, out.policy.states, out.policy.val,
                 out.policy.fractions, r'Policy $\pi$ in BED$_{10}$ [Gy]', 'turbo', plot_sets)
             if self.settings.plot_values:
-                poli = afs.plot_val_all(out.value.sf, out.value.states, out.value.val,
+                end_plot = afs.plot_val_all(out.value.sf, out.value.states, out.value.val,
                 out.value.fractions, r'Value $v$', 'viridis', plot_sets)
             if self.settings.plot_remains:
-                poli = afs.plot_val_all(out.remains.sf, out.remains.states, out.remains.val,
+                end_plot = afs.plot_val_all(out.remains.sf, out.remains.states, out.remains.val,
                 out.remains.fractions, 'Expected Remaining Number', 'plasma', plot_sets)
 
-            if self.keys_simulation.save:
-                afs.save_plot(poli, self.simulation_filename)
-            else:
-                self.plot()
+        elif self.algorithm_simulation == 'data':
+            # 
+            plot_sets["axes.linewidth"] = 1.3
+            adrenal = afs.data_reader(self.keys_simulation.data_filepath, 'target', 'adrenal_glands')
+            end_plot = afs.plot_single(adrenal, 'distance', 'sparing_factor', 'oar', r'$w$ [cm]', r'$\delta$', True, 'Set2', plot_sets)
+
+        elif self.algorithm_simulation == 'data1':
+            # 
+            plot_sets["axes.linewidth"] = 1.3
+            adrenal = afs.data_reader(self.keys_simulation.data_filepath, 'target', 'adrenal_glands', 'limiting', 1)
+            end_plot = afs.plot_single(adrenal, 'patient', 'sparing_factor', 'oar', 'Patient', r'$\delta$', False, 'Set2', plot_sets)
+
+        elif self.algorithm_simulation == 'data2':
+            # 
+            plot_sets["axes.linewidth"] = 1.3
+            adrenal = afs.data_reader(self.keys_simulation.data_filepath, 'target', 'adrenal_glands', 'limiting', 1)
+            end_plot = afs.plot_grid(adrenal, 'distance', 'sparing_factor', 'patient', 'oar', r'$w$ [cm]', r'$\delta$', 'colorblind', plot_sets)
+
+        elif self.algorithm_simulation == 'data3':
+            # 
+            plot_sets["axes.linewidth"] = 1.3
+            adrenal = afs.data_reader(self.keys_simulation.data_filepath, 'target', 'adrenal_glands', 'limiting', 1)
+            end_plot = afs.plot_twin_grid(adrenal, 'fraction', 'sparing_factor', 'distance', 'patient', 'oar', r'Fraction $t$', r'$\delta$', r'$w$ [cm]', 'colorblind', plot_sets)
+
+        if self.keys_simulation.save:
+            afs.save_plot(end_plot, self.simulation_filename)
+        else:
+            self.plot()
         
     def plot(self):
-        afs.show_plot()
+        afx.show_plot()
 
 def main():
     """
