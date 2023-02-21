@@ -18,6 +18,7 @@ plot_line_cycle = cycler('linestyle', ['-', '--', ':', '-.'])
 
 RCPARAMS = {"figure.figsize": [6,4],
             "font.size": 14,
+            "font.family": "serif",
             'legend.handlelength': 1.4,
             "legend.fontsize": 11,
             "legend.title_fontsize": 11,
@@ -43,6 +44,5 @@ RCPARAMS = {"figure.figsize": [6,4],
             "lines.markerfacecolor" : "none",
             "lines.markeredgewidth"  : 0.8}
 
-if "CMU Sans Serif" in font_manager.get_font_names():
-    RCPARAMS["font.family"] = "serif"
-#     RCPARAMS["font.sans-serif"] = "CMU Serif"
+# if "CMU Sans Serif" in font_manager.get_font_names():
+#     RCPARAMS["font.serif"] = "CMU Serif"
