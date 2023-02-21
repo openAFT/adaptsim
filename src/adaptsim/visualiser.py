@@ -4,9 +4,8 @@ import matplotlib.pyplot as plt
 from matplotlib import rcParams
 from matplotlib.colors import Normalize as normalise
 import matplotlib.cm as cm
-import adaptsim as afs
 
-def plot_dose(data, sf_list, n_frac, c_list, oar_array, mean, std, plot_sets=afs.RCPARAMS):
+def plot_dose(data, sf_list, n_frac, c_list, oar_array, mean, std, plot_sets=None):
     """
     creates a plot of applied dose and corresponding sparing factor
 
@@ -23,7 +22,8 @@ def plot_dose(data, sf_list, n_frac, c_list, oar_array, mean, std, plot_sets=afs
     ax : matplotlib.pyplot.axes
 
     """
-    rcParams.update(plot_sets)
+    if plot_sets:
+        rcParams.update(plot_sets)
 
     x = np.arange(1, n_frac+1)
     fig, ax = plt.subplots(1,1)
@@ -51,7 +51,7 @@ def plot_dose(data, sf_list, n_frac, c_list, oar_array, mean, std, plot_sets=afs
 
     return fig
 
-def plot_hist(data, n_frac, plot_sets=afs.RCPARAMS):
+def plot_hist(data, n_frac, plot_sets=None):
     """
     creates a histogram plot of numbers of fractions used
 
@@ -66,7 +66,8 @@ def plot_hist(data, n_frac, plot_sets=afs.RCPARAMS):
     ax : matplotlib.pyplot.axes
 
     """
-    rcParams.update(plot_sets)
+    if plot_sets:
+        rcParams.update(plot_sets)
     
     x = np.arange(1, n_frac+1)
     fig, ax = plt.subplots(1,1)
@@ -80,8 +81,9 @@ def plot_hist(data, n_frac, plot_sets=afs.RCPARAMS):
 
     return fig
 
-def plot_val_single(sfs, states, data, fractions, index, label, colmap='turbo', plot_sets=afs.RCPARAMS):
-    rcParams.update(plot_sets)
+def plot_val_single(sfs, states, data, fractions, index, label, colmap='turbo', plot_sets=None):
+    if plot_sets:
+        rcParams.update(plot_sets)
     [n_grids, _, _] = data.shape
     # search for optimal rectangular size of subplot grid
     n_rows = n_columns = int(np.sqrt(n_grids))
@@ -121,9 +123,10 @@ def plot_val_single(sfs, states, data, fractions, index, label, colmap='turbo', 
 
     return fig
 
-def plot_val_all(sfs, states, data_full, fractions, label, colmap='turbo', plot_sets=afs.RCPARAMS):
+def plot_val_all(sfs, states, data_full, fractions, label, colmap='turbo', plot_sets=None):
+    if plot_sets:
+        rcParams.update(plot_sets)
     data = data_full[:-1]
-    rcParams.update(plot_sets)
     [n_grids, _, _] = data.shape
     # search for optimal rectangular size of subplot grid
     n_rows = n_columns = int(np.sqrt(n_grids))
@@ -177,6 +180,3 @@ def plot_val_all(sfs, states, data_full, fractions, label, colmap='turbo', plot_
 def save_plot(fig, filename):
     basename = filename.rsplit('.')[0]
     fig.savefig(f'{basename}.pdf', format='pdf')
-
-def show_plot():
-    plt.show()
