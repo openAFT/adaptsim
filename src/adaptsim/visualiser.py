@@ -180,3 +180,4 @@ def plot_val_all(sfs, states, data_full, fractions, label, colmap='turbo', plot_
 def save_plot(fig, filename):
     basename = filename.rsplit('.')[0]
     fig.savefig(f'{basename}.pdf', format='pdf')
+    plt.clf()
