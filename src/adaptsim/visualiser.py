@@ -181,3 +181,4 @@ def save_plot(fig, filename):
     basename = filename.rsplit('.')[0]
     fig.savefig(f'{basename}.pdf', format='pdf')
     plt.clf()
+    plt.close()
