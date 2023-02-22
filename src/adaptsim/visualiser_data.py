@@ -7,7 +7,7 @@ def data_reader(filename, key_1, entry_1, key_2=False, entry_2=False, sep=',', p
     if plot_sets:
         rcParams.update(plot_sets)
     df_load = pd.read_csv(filename, sep=sep)
-    df = df_load.loc[(df_load['patient'] < 31)]
+    df = df_load.loc[(df_load['Patient'] < 31)]
     if key_2 and entry_2:
         return df.loc[(df[key_1]==entry_1) & (df[key_2]==entry_2)]
     else:

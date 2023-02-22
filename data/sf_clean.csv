@@ -1,271 +1,271 @@
-patient,limiting,oar,target,fraction,distance,d_N,d_T,sparing_factor,main_oar
-1,1,stomach,pancreas,0,0.00,29.83,33.14,0.90,stomach
-1,1,stomach,pancreas,1,-0.17,29.63,28.52,1.04,stomach
-1,1,stomach,pancreas,2,0.00,28.81,28.89,1.00,stomach
-1,1,stomach,pancreas,3,-0.48,28.90,28.43,1.02,stomach
-1,1,stomach,pancreas,4,-0.58,29.03,28.44,1.02,stomach
-1,1,stomach,pancreas,5,-0.17,29.92,29.97,1.00,stomach
-2,1,stomach,pancreas,0,0.00,28.16,35.47,0.79,stomach
-2,1,stomach,pancreas,1,0.27,29.08,40.28,0.72,stomach
-2,1,stomach,pancreas,2,0.00,29.14,37.92,0.77,stomach
-2,1,stomach,pancreas,3,0.23,29.34,40.21,0.73,stomach
-2,1,stomach,pancreas,4,0.00,29.27,33.97,0.86,stomach
-2,1,stomach,pancreas,5,0.00,28.87,38.22,0.76,stomach
-3,1,bowel,pancreas,0,0.50,25.55,35.52,0.72,bowel
-3,1,bowel,pancreas,1,0.49,28.04,35.40,0.79,bowel
-3,1,bowel,pancreas,2,0.73,21.73,35.39,0.61,bowel
-3,1,bowel,pancreas,3,0.33,28.98,34.98,0.83,bowel
-3,1,bowel,pancreas,4,0.58,26.91,35.13,0.77,bowel
-3,1,bowel,pancreas,5,0.50,27.23,35.12,0.78,bowel
-4,1,bowel,pancreas,0,0.80,25.24,35.29,0.72,bowel
-4,1,bowel,pancreas,1,0.88,25.32,35.39,0.72,bowel
-4,1,bowel,pancreas,2,0.72,24.48,35.34,0.69,bowel
-4,1,bowel,pancreas,3,0.71,27.45,35.43,0.77,bowel
-4,1,bowel,pancreas,4,0.61,26.45,35.31,0.75,bowel
-4,1,bowel,pancreas,5,0.60,27.59,35.39,0.78,bowel
-5,1,bowel,pancreas,0,-0.44,29.95,29.32,1.02,bowel
-5,1,bowel,pancreas,1,-0.19,29.87,30.08,0.99,bowel
-5,1,bowel,pancreas,2,-0.18,29.98,29.27,1.02,bowel
-5,1,bowel,pancreas,3,-0.19,29.92,29.40,1.02,bowel
-5,1,bowel,pancreas,4,-0.45,29.98,29.77,1.01,bowel
-5,1,bowel,pancreas,5,0.00,29.90,29.17,1.03,bowel
-6,1,bowel,pancreas,0,0.00,29.64,29.35,1.01,bowel
-6,1,bowel,pancreas,1,0.00,29.95,27.12,1.10,bowel
-6,1,bowel,pancreas,2,0.00,29.11,28.70,1.01,bowel
-6,1,bowel,pancreas,3,0.00,28.95,29.32,0.99,bowel
-6,1,bowel,pancreas,4,0.00,29.99,29.19,1.03,bowel
-6,1,bowel,pancreas,5,0.00,29.38,28.34,1.04,bowel
-7,1,bowel,pancreas,0,0.31,22.37,35.08,0.64,bowel
-7,1,bowel,pancreas,1,0.63,23.14,35.05,0.66,bowel
-7,1,bowel,pancreas,2,0.30,24.06,35.02,0.69,bowel
-7,1,bowel,pancreas,3,0.14,29.96,34.94,0.86,bowel
-7,1,bowel,pancreas,4,0.60,23.17,35.19,0.66,bowel
-7,1,bowel,pancreas,5,0.91,20.04,35.27,0.57,bowel
-8,1,bowel,pancreas,0,0.00,27.60,32.84,0.84,bowel
-8,1,bowel,pancreas,1,0.00,27.52,29.78,0.92,bowel
-8,1,bowel,pancreas,2,0.00,27.37,28.39,0.96,bowel
-8,1,bowel,pancreas,3,-0.16,29.06,29.09,1.00,bowel
-8,1,bowel,pancreas,4,0.00,28.85,32.25,0.89,bowel
-8,1,bowel,pancreas,5,0.00,28.24,32.42,0.87,bowel
-9,1,duodenum,pancreas,0,0.33,26.10,34.71,0.75,duodenum
-9,1,duodenum,pancreas,1,0.35,26.33,35.01,0.75,duodenum
-9,1,duodenum,pancreas,2,0.17,27.46,34.61,0.79,duodenum
-9,1,duodenum,pancreas,3,0.29,24.84,35.01,0.71,duodenum
-9,1,duodenum,pancreas,4,0.23,28.38,34.59,0.82,duodenum
-9,1,duodenum,pancreas,5,0.25,27.41,34.82,0.79,duodenum
-10,1,duodenum,pancreas,0,0.00,28.26,33.23,0.85,duodenum
-10,1,duodenum,pancreas,1,0.00,29.00,33.05,0.88,duodenum
-10,1,duodenum,pancreas,2,0.00,28.79,33.24,0.87,duodenum
-10,1,duodenum,pancreas,3,-0.26,29.96,33.04,0.91,duodenum
-10,1,duodenum,pancreas,4,0.40,28.29,33.10,0.85,duodenum
-10,1,duodenum,pancreas,5,0.14,29.39,33.29,0.88,duodenum
-11,1,duodenum,adrenal_glands,0,1.51,14.95,42.00,0.36,duodenum
-11,1,duodenum,adrenal_glands,1,2.21,11.47,41.88,0.27,duodenum
-11,1,duodenum,adrenal_glands,2,1.35,12.71,41.79,0.30,duodenum
-11,1,duodenum,adrenal_glands,3,1.25,16.10,41.82,0.38,duodenum
-11,1,duodenum,adrenal_glands,4,2.30,10.67,41.87,0.25,duodenum
-11,1,duodenum,adrenal_glands,5,2.19,13.25,41.87,0.32,duodenum
-12,1,duodenum,adrenal_glands,0,0.00,29.89,31.75,0.94,duodenum
-12,1,duodenum,adrenal_glands,1,0.00,29.65,32.22,0.92,duodenum
-12,1,duodenum,adrenal_glands,2,0.00,29.91,31.85,0.94,duodenum
-12,1,duodenum,adrenal_glands,3,0.00,28.81,32.43,0.89,duodenum
-12,1,duodenum,adrenal_glands,4,0.00,28.17,32.13,0.88,duodenum
-12,1,duodenum,adrenal_glands,5,0.00,28.21,32.47,0.87,duodenum
-13,1,duodenum,adrenal_glands,0,0.97,22.94,40.82,0.56,duodenum
-13,1,duodenum,adrenal_glands,1,0.95,21.83,40.74,0.54,duodenum
-13,1,duodenum,adrenal_glands,2,0.93,22.29,40.17,0.55,duodenum
-13,1,duodenum,adrenal_glands,3,0.99,20.93,40.38,0.52,duodenum
-13,1,duodenum,adrenal_glands,4,1.50,17.94,40.71,0.44,duodenum
-13,1,duodenum,adrenal_glands,5,1.34,18.51,40.62,0.46,duodenum
-14,1,stomach,adrenal_glands,0,0.00,19.97,20.08,0.99,stomach
-14,1,stomach,adrenal_glands,1,0.00,19.40,20.08,0.97,stomach
-14,1,stomach,adrenal_glands,2,0.00,19.03,20.06,0.95,stomach
-14,1,stomach,adrenal_glands,3,0.15,18.79,19.92,0.94,stomach
-14,1,stomach,adrenal_glands,4,0.00,17.94,19.91,0.90,stomach
-14,1,stomach,adrenal_glands,5,0.00,19.38,19.75,0.98,stomach
-15,1,stomach,adrenal_glands,0,4.96,8.02,35.62,0.23,stomach
-15,1,stomach,adrenal_glands,1,5.30,8.94,35.63,0.25,stomach
-15,1,stomach,adrenal_glands,2,4.37,9.92,36.19,0.27,stomach
-15,1,stomach,adrenal_glands,3,4.39,8.60,35.65,0.24,stomach
-15,1,stomach,adrenal_glands,4,4.53,8.73,36.15,0.24,stomach
-15,1,stomach,adrenal_glands,5,4.66,7.94,36.49,0.22,stomach
-16,1,duodenum,adrenal_glands,0,1.14,23.62,36.57,0.65,duodenum
-16,1,duodenum,adrenal_glands,1,1.36,19.70,36.31,0.54,duodenum
-16,1,duodenum,adrenal_glands,2,0.98,22.01,36.67,0.60,duodenum
-16,1,duodenum,adrenal_glands,3,1.14,23.62,36.57,0.65,duodenum
-16,1,duodenum,adrenal_glands,4,0.88,23.12,36.32,0.64,duodenum
-16,1,duodenum,adrenal_glands,5,1.19,22.20,36.73,0.60,duodenum
-17,1,stomach,adrenal_glands,0,0.20,27.42,32.68,0.84,stomach
-17,1,stomach,adrenal_glands,1,0.27,27.89,32.61,0.86,stomach
-17,1,stomach,adrenal_glands,2,0.00,28.90,30.30,0.95,stomach
-17,1,stomach,adrenal_glands,3,0.25,28.45,32.21,0.88,stomach
-17,1,stomach,adrenal_glands,4,0.15,29.55,32.23,0.92,stomach
-17,1,stomach,adrenal_glands,5,0.10,27.97,33.22,0.84,stomach
-18,1,bowel,adrenal_glands,0,0.00,28.31,32.12,0.88,bowel
-18,1,bowel,adrenal_glands,1,0.00,29.28,32.00,0.92,bowel
-18,1,bowel,adrenal_glands,2,0.00,28.63,32.79,0.87,bowel
-18,1,bowel,adrenal_glands,3,0.00,28.81,32.78,0.88,bowel
-18,1,bowel,adrenal_glands,4,0.00,29.36,31.57,0.93,bowel
-18,1,bowel,adrenal_glands,5,0.00,29.24,30.77,0.95,bowel
-19,1,bowel,adrenal_glands,0,0.17,31.66,35.02,0.90,bowel
-19,1,bowel,adrenal_glands,1,0.10,31.03,34.10,0.91,bowel
-19,1,bowel,adrenal_glands,2,0.14,30.99,33.91,0.91,bowel
-19,1,bowel,adrenal_glands,3,0.11,31.66,35.02,0.90,bowel
-19,1,bowel,adrenal_glands,4,0.27,29.97,33.92,0.88,bowel
-19,1,bowel,adrenal_glands,5,0.15,29.56,33.61,0.88,bowel
-20,1,bowel,adrenal_glands,0,2.57,10.51,40.62,0.26,bowel
-20,1,bowel,adrenal_glands,1,2.44,12.66,41.08,0.31,bowel
-20,1,bowel,adrenal_glands,2,2.93,16.05,41.07,0.39,bowel
-20,1,bowel,adrenal_glands,3,4.00,12.64,41.37,0.31,bowel
-20,1,bowel,adrenal_glands,4,3.40,14.07,41.21,0.34,bowel
-20,1,bowel,adrenal_glands,5,2.93,15.54,40.93,0.38,bowel
-21,1,rectum,prostate,0,0.00,36.57,36.25,1.01,rectum
-21,1,rectum,prostate,1,0.00,36.48,36.25,1.01,rectum
-21,1,rectum,prostate,2,0.00,36.22,36.25,1.00,rectum
-21,1,rectum,prostate,3,0.00,35.15,36.25,0.97,rectum
-21,1,rectum,prostate,4,0.00,35.18,36.25,0.97,rectum
-21,1,rectum,prostate,5,0.00,35.39,36.25,0.98,rectum
-22,1,rectum,prostate,0,0.00,37.40,36.25,1.03,rectum
-22,1,rectum,prostate,1,0.00,37.66,36.25,1.04,rectum
-22,1,rectum,prostate,2,0.00,37.30,36.25,1.03,rectum
-22,1,rectum,prostate,3,0.00,37.37,36.25,1.03,rectum
-22,1,rectum,prostate,4,0.00,37.15,36.25,1.02,rectum
-22,1,rectum,prostate,5,0.00,37.32,36.25,1.03,rectum
-23,1,rectum,prostate,0,0.00,36.61,36.25,1.01,rectum
-23,1,rectum,prostate,1,0.00,37.53,36.25,1.04,rectum
-23,1,rectum,prostate,2,0.00,37.43,36.25,1.03,rectum
-23,1,rectum,prostate,3,0.00,36.75,36.25,1.01,rectum
-23,1,rectum,prostate,4,0.00,35.41,36.25,0.98,rectum
-23,1,rectum,prostate,5,0.00,37.21,36.25,1.03,rectum
-24,1,rectum,prostate,0,0.00,37.58,36.25,1.04,rectum
-24,1,rectum,prostate,1,0.00,36.54,36.25,1.01,rectum
-24,1,rectum,prostate,2,0.00,37.67,36.25,1.04,rectum
-24,1,rectum,prostate,3,0.00,37.85,36.25,1.04,rectum
-24,1,rectum,prostate,4,0.00,37.90,36.25,1.05,rectum
-24,1,rectum,prostate,5,0.00,37.99,36.25,1.05,rectum
-25,1,rectum,prostate,0,0.00,37.30,36.25,1.03,rectum
-25,1,rectum,prostate,1,0.00,38.04,36.25,1.05,rectum
-25,1,rectum,prostate,2,0.00,37.76,36.25,1.04,rectum
-25,1,rectum,prostate,3,0.00,38.17,36.25,1.05,rectum
-25,1,rectum,prostate,4,0.00,37.97,36.25,1.05,rectum
-25,1,rectum,prostate,5,0.00,38.27,36.25,1.06,rectum
-26,1,rectum,boost,0,0.45,38.06,40.18,0.95,rectum
-26,1,rectum,boost,1,0.33,37.81,39.94,0.95,rectum
-26,1,rectum,boost,2,0.73,37.73,40.09,0.94,rectum
-26,1,rectum,boost,3,0.53,37.37,40.15,0.93,rectum
-26,1,rectum,boost,4,0.47,37.53,40.27,0.93,rectum
-26,1,rectum,boost,5,0.66,37.39,40.48,0.92,rectum
-27,1,rectum,boost,0,1.18,36.06,39.44,0.91,rectum
-27,1,rectum,boost,1,1.04,37.54,39.44,0.95,rectum
-27,1,rectum,boost,2,1.06,36.45,39.47,0.92,rectum
-27,1,rectum,boost,3,1.15,36.58,39.21,0.93,rectum
-27,1,rectum,boost,4,0.94,37.61,39.43,0.95,rectum
-27,1,rectum,boost,5,1.20,36.11,39.48,0.91,rectum
-28,1,rectum,boost,0,0.53,37.54,39.36,0.95,rectum
-28,1,rectum,boost,1,0.47,37.89,39.34,0.96,rectum
-28,1,rectum,boost,2,0.40,38.35,39.43,0.97,rectum
-28,1,rectum,boost,3,0.29,38.04,39.31,0.97,rectum
-28,1,rectum,boost,4,0.70,38.04,39.32,0.97,rectum
-28,1,rectum,boost,5,1.00,37.91,39.74,0.95,rectum
-29,1,rectum,boost,0,0.46,37.77,40.93,0.92,rectum
-29,1,rectum,boost,1,0.80,37.42,40.90,0.91,rectum
-29,1,rectum,boost,2,0.60,37.00,40.90,0.90,rectum
-29,1,rectum,boost,3,0.88,36.06,40.73,0.89,rectum
-29,1,rectum,boost,4,0.74,37.35,40.89,0.91,rectum
-29,1,rectum,boost,5,0.57,38.51,40.85,0.94,rectum
-30,1,rectum,boost,0,1.58,37.02,40.31,0.92,rectum
-30,1,rectum,boost,1,1.17,38.17,40.11,0.95,rectum
-30,1,rectum,boost,2,1.36,36.76,40.14,0.92,rectum
-30,1,rectum,boost,3,1.40,36.94,40.16,0.92,rectum
-30,1,rectum,boost,4,1.53,35.69,40.13,0.89,rectum
-30,1,rectum,boost,5,1.47,36.84,40.14,0.92,rectum
-3,0,stomach,pancreas,0,0.90,23.15,35.52,0.65,bowel
-3,0,stomach,pancreas,1,0.70,25.62,35.40,0.72,bowel
-3,0,stomach,pancreas,2,0.83,26.25,35.39,0.74,bowel
-3,0,stomach,pancreas,3,0.42,27.68,34.98,0.79,bowel
-3,0,stomach,pancreas,4,0.62,25.05,35.13,0.71,bowel
-3,0,stomach,pancreas,5,0.67,25.60,35.12,0.73,bowel
-1,0,duodenum,pancreas,0,0.30,27.61,33.14,0.83,stomach
-1,0,duodenum,pancreas,1,-0.32,29.35,28.52,1.03,stomach
-1,0,duodenum,pancreas,2,0.00,28.81,28.89,1.00,stomach
-1,0,duodenum,pancreas,3,-0.44,27.91,28.43,0.98,stomach
-1,0,duodenum,pancreas,4,-0.17,28.60,28.44,1.01,stomach
-1,0,duodenum,pancreas,5,0.00,29.30,29.97,0.98,stomach
-1,0,bowel,pancreas,0,1.50,14.95,33.14,0.45,stomach
-1,0,bowel,pancreas,1,2.10,14.34,28.52,0.50,stomach
-1,0,bowel,pancreas,2,3.10,16.73,28.89,0.58,stomach
-1,0,bowel,pancreas,3,-0.70,30.73,28.43,1.08,stomach
-1,0,bowel,pancreas,4,3.00,15.52,28.44,0.55,stomach
-1,0,bowel,pancreas,5,2.56,14.88,29.97,0.50,stomach
-2,0,duodenum,pancreas,0,0.13,27.20,35.47,0.77,stomach
-2,0,duodenum,pancreas,1,0.38,27.14,40.28,0.67,stomach
-2,0,duodenum,pancreas,2,0.66,27.29,37.92,0.72,stomach
-2,0,duodenum,pancreas,3,0.80,27.42,40.21,0.68,stomach
-2,0,duodenum,pancreas,4,0.00,28.83,33.97,0.85,stomach
-2,0,duodenum,pancreas,5,0.50,27.70,38.22,0.72,stomach
-2,0,bowel,pancreas,0,0.00,29.71,35.47,0.84,stomach
-2,0,bowel,pancreas,1,0.45,29.43,40.28,0.73,stomach
-2,0,bowel,pancreas,2,0.20,28.27,37.92,0.75,stomach
-2,0,bowel,pancreas,3,0.54,28.90,40.21,0.72,stomach
-2,0,bowel,pancreas,4,0.00,29.02,33.97,0.85,stomach
-2,0,bowel,pancreas,5,0.34,29.26,38.22,0.77,stomach
-5,0,stomach,pancreas,0,0.76,28.84,29.32,0.98,bowel
-5,0,stomach,pancreas,1,1.18,25.61,30.08,0.85,bowel
-5,0,stomach,pancreas,2,1.04,25.47,29.27,0.87,bowel
-5,0,stomach,pancreas,3,1.19,25.69,29.40,0.87,bowel
-5,0,stomach,pancreas,4,1.33,24.36,29.77,0.82,bowel
-5,0,stomach,pancreas,5,0.99,24.53,29.17,0.84,bowel
-10,0,stomach,pancreas,0,0.57,21.91,33.23,0.66,duodenum
-10,0,stomach,pancreas,1,0.65,22.60,33.05,0.68,duodenum
-10,0,stomach,pancreas,2,0.26,22.86,33.24,0.69,duodenum
-10,0,stomach,pancreas,3,0.56,24.09,33.04,0.73,duodenum
-10,0,stomach,pancreas,4,0.30,24.06,33.10,0.73,duodenum
-10,0,stomach,pancreas,5,0.51,21.26,33.29,0.64,duodenum
-18,0,stomach,adrenal_glands,0,0.88,17.87,32.12,0.56,bowel
-18,0,stomach,adrenal_glands,1,1.22,17.22,32.00,0.54,bowel
-18,0,stomach,adrenal_glands,2,1.48,15.43,32.79,0.47,bowel
-18,0,stomach,adrenal_glands,3,1.25,13.72,32.78,0.42,bowel
-18,0,stomach,adrenal_glands,4,1.68,14.08,31.57,0.45,bowel
-18,0,stomach,adrenal_glands,5,1.42,14.07,30.77,0.46,bowel
-19,0,stomach,adrenal_glands,0,0.88,25.35,35.02,0.72,bowel
-19,0,stomach,adrenal_glands,1,0.29,29.14,34.10,0.85,bowel
-19,0,stomach,adrenal_glands,2,0.53,29.54,33.91,0.87,bowel
-19,0,stomach,adrenal_glands,3,0.83,25.35,35.02,0.72,bowel
-19,0,stomach,adrenal_glands,4,0.92,27.46,33.92,0.81,bowel
-19,0,stomach,adrenal_glands,5,0.34,29.62,33.61,0.88,bowel
-15,0,duodenum,adrenal_glands,0,4.03,0.91,35.62,0.03,stomach
-15,0,duodenum,adrenal_glands,1,3.02,1.04,35.63,0.03,stomach
-15,0,duodenum,adrenal_glands,2,3.56,0.95,36.19,0.03,stomach
-15,0,duodenum,adrenal_glands,3,3.04,0.95,35.65,0.03,stomach
-15,0,duodenum,adrenal_glands,4,3.58,0.99,36.15,0.03,stomach
-15,0,duodenum,adrenal_glands,5,3.21,2.40,36.49,0.07,stomach
-12,0,bowel,adrenal_glands,0,0.00,29.62,31.75,0.93,duodenum
-12,0,bowel,adrenal_glands,1,0.17,29.08,32.22,0.90,duodenum
-12,0,bowel,adrenal_glands,2,0.19,28.89,31.85,0.91,duodenum
-12,0,bowel,adrenal_glands,3,0.15,27.19,32.43,0.84,duodenum
-12,0,bowel,adrenal_glands,4,0.23,26.03,32.13,0.81,duodenum
-12,0,bowel,adrenal_glands,5,0.12,27.91,32.47,0.86,duodenum
-20,0,duodenum,adrenal_glands,0,2.64,4.46,40.62,0.11,bowel
-20,0,duodenum,adrenal_glands,1,4.54,0.82,41.08,0.02,bowel
-20,0,duodenum,adrenal_glands,2,2.44,9.78,41.07,0.24,bowel
-20,0,duodenum,adrenal_glands,3,4.98,4.09,41.37,0.10,bowel
-20,0,duodenum,adrenal_glands,4,3.42,6.34,41.21,0.15,bowel
-20,0,duodenum,adrenal_glands,5,3.86,7.88,40.93,0.19,bowel
-13,0,bowel,adrenal_glands,0,0.83,22.50,32.68,0.69,duodenum
-13,0,bowel,adrenal_glands,1,0.74,22.32,32.61,0.68,duodenum
-13,0,bowel,adrenal_glands,2,0.67,23.47,30.30,0.77,duodenum
-13,0,bowel,adrenal_glands,3,0.90,21.90,32.21,0.68,duodenum
-13,0,bowel,adrenal_glands,4,1.25,20.46,32.23,0.63,duodenum
-13,0,bowel,adrenal_glands,5,1.33,21.51,33.22,0.65,duodenum
-31,0,stomach,adrenal_glands,0,0.00,29.78,30.33,0.98,None
-31,0,stomach,adrenal_glands,1,0.23,28.79,35.28,0.82,None
-31,0,stomach,adrenal_glands,2,0.30,25.98,28.62,0.91,None
-31,0,stomach,adrenal_glands,3,0.27,27.00,36.66,0.74,None
-31,0,stomach,adrenal_glands,4,0.48,26.85,37.65,0.71,None
-31,0,stomach,adrenal_glands,5,0.00,29.87,34.88,0.86,None
-31,0,bowel,adrenal_glands,0,2.55,15.27,30.33,0.50,None
-31,0,bowel,adrenal_glands,1,2.91,13.85,35.28,0.39,None
-31,0,bowel,adrenal_glands,2,0.00,30.56,28.62,1.07,None
-31,0,bowel,adrenal_glands,3,1.57,18.95,36.66,0.52,None
-31,0,bowel,adrenal_glands,4,1.23,21.07,37.65,0.56,None
-31,0,bowel,adrenal_glands,5,1.40,17.99,34.88,0.52,None
+Patient,Limiting,OAR,Target,Fraction,Distance,d_N,d_T,sparing_factor,main_oar
+1,1,Stomach,Pancreas,0,0.00,29.83,33.14,0.90,Stomach
+1,1,Stomach,Pancreas,1,-0.17,29.63,28.52,1.04,Stomach
+1,1,Stomach,Pancreas,2,0.00,28.81,28.89,1.00,Stomach
+1,1,Stomach,Pancreas,3,-0.48,28.90,28.43,1.02,Stomach
+1,1,Stomach,Pancreas,4,-0.58,29.03,28.44,1.02,Stomach
+1,1,Stomach,Pancreas,5,-0.17,29.92,29.97,1.00,Stomach
+2,1,Stomach,Pancreas,0,0.00,28.16,35.47,0.79,Stomach
+2,1,Stomach,Pancreas,1,0.27,29.08,40.28,0.72,Stomach
+2,1,Stomach,Pancreas,2,0.00,29.14,37.92,0.77,Stomach
+2,1,Stomach,Pancreas,3,0.23,29.34,40.21,0.73,Stomach
+2,1,Stomach,Pancreas,4,0.00,29.27,33.97,0.86,Stomach
+2,1,Stomach,Pancreas,5,0.00,28.87,38.22,0.76,Stomach
+3,1,Bowel,Pancreas,0,0.50,25.55,35.52,0.72,Bowel
+3,1,Bowel,Pancreas,1,0.49,28.04,35.40,0.79,Bowel
+3,1,Bowel,Pancreas,2,0.73,21.73,35.39,0.61,Bowel
+3,1,Bowel,Pancreas,3,0.33,28.98,34.98,0.83,Bowel
+3,1,Bowel,Pancreas,4,0.58,26.91,35.13,0.77,Bowel
+3,1,Bowel,Pancreas,5,0.50,27.23,35.12,0.78,Bowel
+4,1,Bowel,Pancreas,0,0.80,25.24,35.29,0.72,Bowel
+4,1,Bowel,Pancreas,1,0.88,25.32,35.39,0.72,Bowel
+4,1,Bowel,Pancreas,2,0.72,24.48,35.34,0.69,Bowel
+4,1,Bowel,Pancreas,3,0.71,27.45,35.43,0.77,Bowel
+4,1,Bowel,Pancreas,4,0.61,26.45,35.31,0.75,Bowel
+4,1,Bowel,Pancreas,5,0.60,27.59,35.39,0.78,Bowel
+5,1,Bowel,Pancreas,0,-0.44,29.95,29.32,1.02,Bowel
+5,1,Bowel,Pancreas,1,-0.19,29.87,30.08,0.99,Bowel
+5,1,Bowel,Pancreas,2,-0.18,29.98,29.27,1.02,Bowel
+5,1,Bowel,Pancreas,3,-0.19,29.92,29.40,1.02,Bowel
+5,1,Bowel,Pancreas,4,-0.45,29.98,29.77,1.01,Bowel
+5,1,Bowel,Pancreas,5,0.00,29.90,29.17,1.03,Bowel
+6,1,Bowel,Pancreas,0,0.00,29.64,29.35,1.01,Bowel
+6,1,Bowel,Pancreas,1,0.00,29.95,27.12,1.10,Bowel
+6,1,Bowel,Pancreas,2,0.00,29.11,28.70,1.01,Bowel
+6,1,Bowel,Pancreas,3,0.00,28.95,29.32,0.99,Bowel
+6,1,Bowel,Pancreas,4,0.00,29.99,29.19,1.03,Bowel
+6,1,Bowel,Pancreas,5,0.00,29.38,28.34,1.04,Bowel
+7,1,Bowel,Pancreas,0,0.31,22.37,35.08,0.64,Bowel
+7,1,Bowel,Pancreas,1,0.63,23.14,35.05,0.66,Bowel
+7,1,Bowel,Pancreas,2,0.30,24.06,35.02,0.69,Bowel
+7,1,Bowel,Pancreas,3,0.14,29.96,34.94,0.86,Bowel
+7,1,Bowel,Pancreas,4,0.60,23.17,35.19,0.66,Bowel
+7,1,Bowel,Pancreas,5,0.91,20.04,35.27,0.57,Bowel
+8,1,Bowel,Pancreas,0,0.00,27.60,32.84,0.84,Bowel
+8,1,Bowel,Pancreas,1,0.00,27.52,29.78,0.92,Bowel
+8,1,Bowel,Pancreas,2,0.00,27.37,28.39,0.96,Bowel
+8,1,Bowel,Pancreas,3,-0.16,29.06,29.09,1.00,Bowel
+8,1,Bowel,Pancreas,4,0.00,28.85,32.25,0.89,Bowel
+8,1,Bowel,Pancreas,5,0.00,28.24,32.42,0.87,Bowel
+9,1,Duodenum,Pancreas,0,0.33,26.10,34.71,0.75,Duodenum
+9,1,Duodenum,Pancreas,1,0.35,26.33,35.01,0.75,Duodenum
+9,1,Duodenum,Pancreas,2,0.17,27.46,34.61,0.79,Duodenum
+9,1,Duodenum,Pancreas,3,0.29,24.84,35.01,0.71,Duodenum
+9,1,Duodenum,Pancreas,4,0.23,28.38,34.59,0.82,Duodenum
+9,1,Duodenum,Pancreas,5,0.25,27.41,34.82,0.79,Duodenum
+10,1,Duodenum,Pancreas,0,0.00,28.26,33.23,0.85,Duodenum
+10,1,Duodenum,Pancreas,1,0.00,29.00,33.05,0.88,Duodenum
+10,1,Duodenum,Pancreas,2,0.00,28.79,33.24,0.87,Duodenum
+10,1,Duodenum,Pancreas,3,-0.26,29.96,33.04,0.91,Duodenum
+10,1,Duodenum,Pancreas,4,0.40,28.29,33.10,0.85,Duodenum
+10,1,Duodenum,Pancreas,5,0.14,29.39,33.29,0.88,Duodenum
+11,1,Duodenum,Adrenal Glands,0,1.51,14.95,42.00,0.36,Duodenum
+11,1,Duodenum,Adrenal Glands,1,2.21,11.47,41.88,0.27,Duodenum
+11,1,Duodenum,Adrenal Glands,2,1.35,12.71,41.79,0.30,Duodenum
+11,1,Duodenum,Adrenal Glands,3,1.25,16.10,41.82,0.38,Duodenum
+11,1,Duodenum,Adrenal Glands,4,2.30,10.67,41.87,0.25,Duodenum
+11,1,Duodenum,Adrenal Glands,5,2.19,13.25,41.87,0.32,Duodenum
+12,1,Duodenum,Adrenal Glands,0,0.00,29.89,31.75,0.94,Duodenum
+12,1,Duodenum,Adrenal Glands,1,0.00,29.65,32.22,0.92,Duodenum
+12,1,Duodenum,Adrenal Glands,2,0.00,29.91,31.85,0.94,Duodenum
+12,1,Duodenum,Adrenal Glands,3,0.00,28.81,32.43,0.89,Duodenum
+12,1,Duodenum,Adrenal Glands,4,0.00,28.17,32.13,0.88,Duodenum
+12,1,Duodenum,Adrenal Glands,5,0.00,28.21,32.47,0.87,Duodenum
+13,1,Duodenum,Adrenal Glands,0,0.97,22.94,40.82,0.56,Duodenum
+13,1,Duodenum,Adrenal Glands,1,0.95,21.83,40.74,0.54,Duodenum
+13,1,Duodenum,Adrenal Glands,2,0.93,22.29,40.17,0.55,Duodenum
+13,1,Duodenum,Adrenal Glands,3,0.99,20.93,40.38,0.52,Duodenum
+13,1,Duodenum,Adrenal Glands,4,1.50,17.94,40.71,0.44,Duodenum
+13,1,Duodenum,Adrenal Glands,5,1.34,18.51,40.62,0.46,Duodenum
+14,1,Stomach,Adrenal Glands,0,0.00,19.97,20.08,0.99,Stomach
+14,1,Stomach,Adrenal Glands,1,0.00,19.40,20.08,0.97,Stomach
+14,1,Stomach,Adrenal Glands,2,0.00,19.03,20.06,0.95,Stomach
+14,1,Stomach,Adrenal Glands,3,0.15,18.79,19.92,0.94,Stomach
+14,1,Stomach,Adrenal Glands,4,0.00,17.94,19.91,0.90,Stomach
+14,1,Stomach,Adrenal Glands,5,0.00,19.38,19.75,0.98,Stomach
+15,1,Stomach,Adrenal Glands,0,4.96,8.02,35.62,0.23,Stomach
+15,1,Stomach,Adrenal Glands,1,5.30,8.94,35.63,0.25,Stomach
+15,1,Stomach,Adrenal Glands,2,4.37,9.92,36.19,0.27,Stomach
+15,1,Stomach,Adrenal Glands,3,4.39,8.60,35.65,0.24,Stomach
+15,1,Stomach,Adrenal Glands,4,4.53,8.73,36.15,0.24,Stomach
+15,1,Stomach,Adrenal Glands,5,4.66,7.94,36.49,0.22,Stomach
+16,1,Duodenum,Adrenal Glands,0,1.14,23.62,36.57,0.65,Duodenum
+16,1,Duodenum,Adrenal Glands,1,1.36,19.70,36.31,0.54,Duodenum
+16,1,Duodenum,Adrenal Glands,2,0.98,22.01,36.67,0.60,Duodenum
+16,1,Duodenum,Adrenal Glands,3,1.14,23.62,36.57,0.65,Duodenum
+16,1,Duodenum,Adrenal Glands,4,0.88,23.12,36.32,0.64,Duodenum
+16,1,Duodenum,Adrenal Glands,5,1.19,22.20,36.73,0.60,Duodenum
+17,1,Stomach,Adrenal Glands,0,0.20,27.42,32.68,0.84,Stomach
+17,1,Stomach,Adrenal Glands,1,0.27,27.89,32.61,0.86,Stomach
+17,1,Stomach,Adrenal Glands,2,0.00,28.90,30.30,0.95,Stomach
+17,1,Stomach,Adrenal Glands,3,0.25,28.45,32.21,0.88,Stomach
+17,1,Stomach,Adrenal Glands,4,0.15,29.55,32.23,0.92,Stomach
+17,1,Stomach,Adrenal Glands,5,0.10,27.97,33.22,0.84,Stomach
+18,1,Bowel,Adrenal Glands,0,0.00,28.31,32.12,0.88,Bowel
+18,1,Bowel,Adrenal Glands,1,0.00,29.28,32.00,0.92,Bowel
+18,1,Bowel,Adrenal Glands,2,0.00,28.63,32.79,0.87,Bowel
+18,1,Bowel,Adrenal Glands,3,0.00,28.81,32.78,0.88,Bowel
+18,1,Bowel,Adrenal Glands,4,0.00,29.36,31.57,0.93,Bowel
+18,1,Bowel,Adrenal Glands,5,0.00,29.24,30.77,0.95,Bowel
+19,1,Bowel,Adrenal Glands,0,0.17,31.66,35.02,0.90,Bowel
+19,1,Bowel,Adrenal Glands,1,0.10,31.03,34.10,0.91,Bowel
+19,1,Bowel,Adrenal Glands,2,0.14,30.99,33.91,0.91,Bowel
+19,1,Bowel,Adrenal Glands,3,0.11,31.66,35.02,0.90,Bowel
+19,1,Bowel,Adrenal Glands,4,0.27,29.97,33.92,0.88,Bowel
+19,1,Bowel,Adrenal Glands,5,0.15,29.56,33.61,0.88,Bowel
+20,1,Bowel,Adrenal Glands,0,2.57,10.51,40.62,0.26,Bowel
+20,1,Bowel,Adrenal Glands,1,2.44,12.66,41.08,0.31,Bowel
+20,1,Bowel,Adrenal Glands,2,2.93,16.05,41.07,0.39,Bowel
+20,1,Bowel,Adrenal Glands,3,4.00,12.64,41.37,0.31,Bowel
+20,1,Bowel,Adrenal Glands,4,3.40,14.07,41.21,0.34,Bowel
+20,1,Bowel,Adrenal Glands,5,2.93,15.54,40.93,0.38,Bowel
+21,1,Rectum,Prostate,0,0.00,36.57,36.25,1.01,Rectum
+21,1,Rectum,Prostate,1,0.00,36.48,36.25,1.01,Rectum
+21,1,Rectum,Prostate,2,0.00,36.22,36.25,1.00,Rectum
+21,1,Rectum,Prostate,3,0.00,35.15,36.25,0.97,Rectum
+21,1,Rectum,Prostate,4,0.00,35.18,36.25,0.97,Rectum
+21,1,Rectum,Prostate,5,0.00,35.39,36.25,0.98,Rectum
+22,1,Rectum,Prostate,0,0.00,37.40,36.25,1.03,Rectum
+22,1,Rectum,Prostate,1,0.00,37.66,36.25,1.04,Rectum
+22,1,Rectum,Prostate,2,0.00,37.30,36.25,1.03,Rectum
+22,1,Rectum,Prostate,3,0.00,37.37,36.25,1.03,Rectum
+22,1,Rectum,Prostate,4,0.00,37.15,36.25,1.02,Rectum
+22,1,Rectum,Prostate,5,0.00,37.32,36.25,1.03,Rectum
+23,1,Rectum,Prostate,0,0.00,36.61,36.25,1.01,Rectum
+23,1,Rectum,Prostate,1,0.00,37.53,36.25,1.04,Rectum
+23,1,Rectum,Prostate,2,0.00,37.43,36.25,1.03,Rectum
+23,1,Rectum,Prostate,3,0.00,36.75,36.25,1.01,Rectum
+23,1,Rectum,Prostate,4,0.00,35.41,36.25,0.98,Rectum
+23,1,Rectum,Prostate,5,0.00,37.21,36.25,1.03,Rectum
+24,1,Rectum,Prostate,0,0.00,37.58,36.25,1.04,Rectum
+24,1,Rectum,Prostate,1,0.00,36.54,36.25,1.01,Rectum
+24,1,Rectum,Prostate,2,0.00,37.67,36.25,1.04,Rectum
+24,1,Rectum,Prostate,3,0.00,37.85,36.25,1.04,Rectum
+24,1,Rectum,Prostate,4,0.00,37.90,36.25,1.05,Rectum
+24,1,Rectum,Prostate,5,0.00,37.99,36.25,1.05,Rectum
+25,1,Rectum,Prostate,0,0.00,37.30,36.25,1.03,Rectum
+25,1,Rectum,Prostate,1,0.00,38.04,36.25,1.05,Rectum
+25,1,Rectum,Prostate,2,0.00,37.76,36.25,1.04,Rectum
+25,1,Rectum,Prostate,3,0.00,38.17,36.25,1.05,Rectum
+25,1,Rectum,Prostate,4,0.00,37.97,36.25,1.05,Rectum
+25,1,Rectum,Prostate,5,0.00,38.27,36.25,1.06,Rectum
+26,1,Rectum,Boost,0,0.45,38.06,40.18,0.95,Rectum
+26,1,Rectum,Boost,1,0.33,37.81,39.94,0.95,Rectum
+26,1,Rectum,Boost,2,0.73,37.73,40.09,0.94,Rectum
+26,1,Rectum,Boost,3,0.53,37.37,40.15,0.93,Rectum
+26,1,Rectum,Boost,4,0.47,37.53,40.27,0.93,Rectum
+26,1,Rectum,Boost,5,0.66,37.39,40.48,0.92,Rectum
+27,1,Rectum,Boost,0,1.18,36.06,39.44,0.91,Rectum
+27,1,Rectum,Boost,1,1.04,37.54,39.44,0.95,Rectum
+27,1,Rectum,Boost,2,1.06,36.45,39.47,0.92,Rectum
+27,1,Rectum,Boost,3,1.15,36.58,39.21,0.93,Rectum
+27,1,Rectum,Boost,4,0.94,37.61,39.43,0.95,Rectum
+27,1,Rectum,Boost,5,1.20,36.11,39.48,0.91,Rectum
+28,1,Rectum,Boost,0,0.53,37.54,39.36,0.95,Rectum
+28,1,Rectum,Boost,1,0.47,37.89,39.34,0.96,Rectum
+28,1,Rectum,Boost,2,0.40,38.35,39.43,0.97,Rectum
+28,1,Rectum,Boost,3,0.29,38.04,39.31,0.97,Rectum
+28,1,Rectum,Boost,4,0.70,38.04,39.32,0.97,Rectum
+28,1,Rectum,Boost,5,1.00,37.91,39.74,0.95,Rectum
+29,1,Rectum,Boost,0,0.46,37.77,40.93,0.92,Rectum
+29,1,Rectum,Boost,1,0.80,37.42,40.90,0.91,Rectum
+29,1,Rectum,Boost,2,0.60,37.00,40.90,0.90,Rectum
+29,1,Rectum,Boost,3,0.88,36.06,40.73,0.89,Rectum
+29,1,Rectum,Boost,4,0.74,37.35,40.89,0.91,Rectum
+29,1,Rectum,Boost,5,0.57,38.51,40.85,0.94,Rectum
+30,1,Rectum,Boost,0,1.58,37.02,40.31,0.92,Rectum
+30,1,Rectum,Boost,1,1.17,38.17,40.11,0.95,Rectum
+30,1,Rectum,Boost,2,1.36,36.76,40.14,0.92,Rectum
+30,1,Rectum,Boost,3,1.40,36.94,40.16,0.92,Rectum
+30,1,Rectum,Boost,4,1.53,35.69,40.13,0.89,Rectum
+30,1,Rectum,Boost,5,1.47,36.84,40.14,0.92,Rectum
+3,0,Stomach,Pancreas,0,0.90,23.15,35.52,0.65,Bowel
+3,0,Stomach,Pancreas,1,0.70,25.62,35.40,0.72,Bowel
+3,0,Stomach,Pancreas,2,0.83,26.25,35.39,0.74,Bowel
+3,0,Stomach,Pancreas,3,0.42,27.68,34.98,0.79,Bowel
+3,0,Stomach,Pancreas,4,0.62,25.05,35.13,0.71,Bowel
+3,0,Stomach,Pancreas,5,0.67,25.60,35.12,0.73,Bowel
+1,0,Duodenum,Pancreas,0,0.30,27.61,33.14,0.83,Stomach
+1,0,Duodenum,Pancreas,1,-0.32,29.35,28.52,1.03,Stomach
+1,0,Duodenum,Pancreas,2,0.00,28.81,28.89,1.00,Stomach
+1,0,Duodenum,Pancreas,3,-0.44,27.91,28.43,0.98,Stomach
+1,0,Duodenum,Pancreas,4,-0.17,28.60,28.44,1.01,Stomach
+1,0,Duodenum,Pancreas,5,0.00,29.30,29.97,0.98,Stomach
+1,0,Bowel,Pancreas,0,1.50,14.95,33.14,0.45,Stomach
+1,0,Bowel,Pancreas,1,2.10,14.34,28.52,0.50,Stomach
+1,0,Bowel,Pancreas,2,3.10,16.73,28.89,0.58,Stomach
+1,0,Bowel,Pancreas,3,-0.70,30.73,28.43,1.08,Stomach
+1,0,Bowel,Pancreas,4,3.00,15.52,28.44,0.55,Stomach
+1,0,Bowel,Pancreas,5,2.56,14.88,29.97,0.50,Stomach
+2,0,Duodenum,Pancreas,0,0.13,27.20,35.47,0.77,Stomach
+2,0,Duodenum,Pancreas,1,0.38,27.14,40.28,0.67,Stomach
+2,0,Duodenum,Pancreas,2,0.66,27.29,37.92,0.72,Stomach
+2,0,Duodenum,Pancreas,3,0.80,27.42,40.21,0.68,Stomach
+2,0,Duodenum,Pancreas,4,0.00,28.83,33.97,0.85,Stomach
+2,0,Duodenum,Pancreas,5,0.50,27.70,38.22,0.72,Stomach
+2,0,Bowel,Pancreas,0,0.00,29.71,35.47,0.84,Stomach
+2,0,Bowel,Pancreas,1,0.45,29.43,40.28,0.73,Stomach
+2,0,Bowel,Pancreas,2,0.20,28.27,37.92,0.75,Stomach
+2,0,Bowel,Pancreas,3,0.54,28.90,40.21,0.72,Stomach
+2,0,Bowel,Pancreas,4,0.00,29.02,33.97,0.85,Stomach
+2,0,Bowel,Pancreas,5,0.34,29.26,38.22,0.77,Stomach
+5,0,Stomach,Pancreas,0,0.76,28.84,29.32,0.98,Bowel
+5,0,Stomach,Pancreas,1,1.18,25.61,30.08,0.85,Bowel
+5,0,Stomach,Pancreas,2,1.04,25.47,29.27,0.87,Bowel
+5,0,Stomach,Pancreas,3,1.19,25.69,29.40,0.87,Bowel
+5,0,Stomach,Pancreas,4,1.33,24.36,29.77,0.82,Bowel
+5,0,Stomach,Pancreas,5,0.99,24.53,29.17,0.84,Bowel
+10,0,Stomach,Pancreas,0,0.57,21.91,33.23,0.66,Duodenum
+10,0,Stomach,Pancreas,1,0.65,22.60,33.05,0.68,Duodenum
+10,0,Stomach,Pancreas,2,0.26,22.86,33.24,0.69,Duodenum
+10,0,Stomach,Pancreas,3,0.56,24.09,33.04,0.73,Duodenum
+10,0,Stomach,Pancreas,4,0.30,24.06,33.10,0.73,Duodenum
+10,0,Stomach,Pancreas,5,0.51,21.26,33.29,0.64,Duodenum
+18,0,Stomach,Adrenal Glands,0,0.88,17.87,32.12,0.56,Bowel
+18,0,Stomach,Adrenal Glands,1,1.22,17.22,32.00,0.54,Bowel
+18,0,Stomach,Adrenal Glands,2,1.48,15.43,32.79,0.47,Bowel
+18,0,Stomach,Adrenal Glands,3,1.25,13.72,32.78,0.42,Bowel
+18,0,Stomach,Adrenal Glands,4,1.68,14.08,31.57,0.45,Bowel
+18,0,Stomach,Adrenal Glands,5,1.42,14.07,30.77,0.46,Bowel
+19,0,Stomach,Adrenal Glands,0,0.88,25.35,35.02,0.72,Bowel
+19,0,Stomach,Adrenal Glands,1,0.29,29.14,34.10,0.85,Bowel
+19,0,Stomach,Adrenal Glands,2,0.53,29.54,33.91,0.87,Bowel
+19,0,Stomach,Adrenal Glands,3,0.83,25.35,35.02,0.72,Bowel
+19,0,Stomach,Adrenal Glands,4,0.92,27.46,33.92,0.81,Bowel
+19,0,Stomach,Adrenal Glands,5,0.34,29.62,33.61,0.88,Bowel
+15,0,Duodenum,Adrenal Glands,0,4.03,0.91,35.62,0.03,Stomach
+15,0,Duodenum,Adrenal Glands,1,3.02,1.04,35.63,0.03,Stomach
+15,0,Duodenum,Adrenal Glands,2,3.56,0.95,36.19,0.03,Stomach
+15,0,Duodenum,Adrenal Glands,3,3.04,0.95,35.65,0.03,Stomach
+15,0,Duodenum,Adrenal Glands,4,3.58,0.99,36.15,0.03,Stomach
+15,0,Duodenum,Adrenal Glands,5,3.21,2.40,36.49,0.07,Stomach
+12,0,Bowel,Adrenal Glands,0,0.00,29.62,31.75,0.93,Duodenum
+12,0,Bowel,Adrenal Glands,1,0.17,29.08,32.22,0.90,Duodenum
+12,0,Bowel,Adrenal Glands,2,0.19,28.89,31.85,0.91,Duodenum
+12,0,Bowel,Adrenal Glands,3,0.15,27.19,32.43,0.84,Duodenum
+12,0,Bowel,Adrenal Glands,4,0.23,26.03,32.13,0.81,Duodenum
+12,0,Bowel,Adrenal Glands,5,0.12,27.91,32.47,0.86,Duodenum
+20,0,Duodenum,Adrenal Glands,0,2.64,4.46,40.62,0.11,Bowel
+20,0,Duodenum,Adrenal Glands,1,4.54,0.82,41.08,0.02,Bowel
+20,0,Duodenum,Adrenal Glands,2,2.44,9.78,41.07,0.24,Bowel
+20,0,Duodenum,Adrenal Glands,3,4.98,4.09,41.37,0.10,Bowel
+20,0,Duodenum,Adrenal Glands,4,3.42,6.34,41.21,0.15,Bowel
+20,0,Duodenum,Adrenal Glands,5,3.86,7.88,40.93,0.19,Bowel
+13,0,Bowel,Adrenal Glands,0,0.83,22.50,32.68,0.69,Duodenum
+13,0,Bowel,Adrenal Glands,1,0.74,22.32,32.61,0.68,Duodenum
+13,0,Bowel,Adrenal Glands,2,0.67,23.47,30.30,0.77,Duodenum
+13,0,Bowel,Adrenal Glands,3,0.90,21.90,32.21,0.68,Duodenum
+13,0,Bowel,Adrenal Glands,4,1.25,20.46,32.23,0.63,Duodenum
+13,0,Bowel,Adrenal Glands,5,1.33,21.51,33.22,0.65,Duodenum
+31,0,Stomach,Adrenal Glands,0,0.00,29.78,30.33,0.98,None
+31,0,Stomach,Adrenal Glands,1,0.23,28.79,35.28,0.82,None
+31,0,Stomach,Adrenal Glands,2,0.30,25.98,28.62,0.91,None
+31,0,Stomach,Adrenal Glands,3,0.27,27.00,36.66,0.74,None
+31,0,Stomach,Adrenal Glands,4,0.48,26.85,37.65,0.71,None
+31,0,Stomach,Adrenal Glands,5,0.00,29.87,34.88,0.86,None
+31,0,Bowel,Adrenal Glands,0,2.55,15.27,30.33,0.50,None
+31,0,Bowel,Adrenal Glands,1,2.91,13.85,35.28,0.39,None
+31,0,Bowel,Adrenal Glands,2,0.00,30.56,28.62,1.07,None
+31,0,Bowel,Adrenal Glands,3,1.57,18.95,36.66,0.52,None
+31,0,Bowel,Adrenal Glands,4,1.23,21.07,37.65,0.56,None
+31,0,Bowel,Adrenal Glands,5,1.40,17.99,34.88,0.52,None

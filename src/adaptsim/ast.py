@@ -131,33 +131,33 @@ class MC_object():
             selec = self.keys_simulation.data_selection
             row_hue = self.keys_simulation.data_row_hue
             plot_sets["axes.linewidth"] = 1.3
-            adrenal = afs.data_reader(self.keys_simulation.data_filepath, selec[0], selec[1])
-            end_plot = afs.plot_single(adrenal, 'distance', 'sparing_factor',
+            data_sf = afs.data_reader(self.keys_simulation.data_filepath, selec[0], selec[1])
+            end_plot = afs.plot_single(data_sf, 'Distance', 'sparing_factor',
                 row_hue, r'$w$ [cm]', r'$\delta$', True, 'Set2', plot_sets)
 
         elif self.algorithm_simulation == 'single_patient':
             selec = self.keys_simulation.data_selection
             row_hue = self.keys_simulation.data_row_hue
             plot_sets["axes.linewidth"] = 1.3
-            adrenal = afs.data_reader(self.keys_simulation.data_filepath, selec[0], selec[1], selec[2], selec[3])
-            end_plot = afs.plot_single(adrenal, 'patient', 'sparing_factor',
+            data_sf = afs.data_reader(self.keys_simulation.data_filepath, selec[0], selec[1], selec[2], selec[3])
+            end_plot = afs.plot_single(data_sf, 'Patient', 'sparing_factor',
                 row_hue, 'Patient', r'$\delta$', False, 'Set2', plot_sets)
 
         elif self.algorithm_simulation == 'grid_distance':
             selec = self.keys_simulation.data_selection
             row_hue = self.keys_simulation.data_row_hue
             plot_sets["axes.linewidth"] = 1.3
-            adrenal = afs.data_reader(self.keys_simulation.data_filepath, selec[0], selec[1], selec[2], selec[3])
-            end_plot = afs.plot_grid(adrenal, 'distance', 'sparing_factor',
-                'patient', row_hue, r'$w$ [cm]', r'$\delta$', 'colorblind', plot_sets)
+            data_sf = afs.data_reader(self.keys_simulation.data_filepath, selec[0], selec[1], selec[2], selec[3])
+            end_plot = afs.plot_grid(data_sf, 'Distance', 'sparing_factor',
+                'Patient', row_hue, r'$w$ [cm]', r'$\delta$', 'colorblind', plot_sets)
 
         elif self.algorithm_simulation == 'grid_fraction':
             selec = self.keys_simulation.data_selection
             row_hue = self.keys_simulation.data_row_hue
             plot_sets["axes.linewidth"] = 1.2
-            adrenal = afs.data_reader(self.keys_simulation.data_filepath, selec[0], selec[1], selec[2], selec[3])
-            end_plot = afs.plot_twin_grid(adrenal, 'fraction', 'sparing_factor',
-                'distance', 'patient', row_hue, r'Fraction $t$', r'$\delta$', r'$w$ [cm]', 'colorblind', plot_sets)
+            data_sf = afs.data_reader(self.keys_simulation.data_filepath, selec[0], selec[1], selec[2], selec[3])
+            end_plot = afs.plot_twin_grid(data_sf, 'Fraction', 'sparing_factor',
+                'Distance', 'Patient', row_hue, r'Fraction $t$', r'$\delta$', r'$w$ [cm]', 'colorblind', plot_sets)
         elif end_plot == None:
             # catch case where no algorithm simulation is specified
             afx.aft_error(f'No such simulation: "{self.algorithm_simulation}"', nme)
