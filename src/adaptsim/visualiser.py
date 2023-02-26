@@ -114,7 +114,7 @@ def plot_val_single(sfs, states, data, fractions, index, label, colmap='turbo', 
         norm=normaliser, cmap=colormap, aspect='auto',
         extent=[x_min, x_max, y_min, y_max])
     T_text = r'{\mathrm{T}}'
-    axs[0].set_title(rf'$t = {fractions[i]}$', loc='left')
+    axs[0].set_title(rf'$t = {fractions[i]}$')
     axs[0].set_xlabel(r'$\delta$')
     axs[0].set_ylabel(rf'$B^{T_text}$ [Gy]')
 
@@ -161,7 +161,7 @@ def plot_val_all(sfs, states, data_full, fractions, label, colmap='turbo', plot_
         axs[i].imshow(pol, interpolation=None, origin='upper',
             norm=normaliser, cmap=colormap, aspect='auto',
             extent=[x_min, x_max, y_min, y_max])
-        axs[i].set_title(rf'$t = {fractions[i]}$', loc='left')
+        axs[i].set_title(rf'$t = {fractions[i]}$')
         try: # get rid of inner axes values
             axs[i].label_outer()
         except:
