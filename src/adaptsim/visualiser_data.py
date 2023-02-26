@@ -16,7 +16,7 @@ def data_reader(filename, key_1, entry_1, key_2=False, entry_2=False, sep=',', p
 def plot_single(data, x, y, hue, x_label=None, y_label=None, minor_ticks=True, palette='Set2', plot_sets=None):
     if plot_sets:
         rcParams.update(plot_sets)
-    ax = sns.scatterplot(data=data, x=x, y=y, hue=hue, palette=palette, alpha=.8)
+    ax = sns.scatterplot(data=data, x=x, y=y, hue=hue, palette=palette)
     if not minor_ticks:
         ax.tick_params(axis='x', which='minor', bottom=False)
     fig = ax.get_figure()
@@ -34,7 +34,7 @@ def plot_grid(data, x, y, hue, row, x_label=None, y_label=None, palette='Set2', 
         aspect = length/height
 
     fig = sns.FacetGrid(data=data, hue=hue, row=row, height=height, aspect=aspect, palette=palette)
-    fig.map(sns.scatterplot, x, y, alpha=.8)
+    fig.map(sns.scatterplot, x, y)
     fig.despine(top=False, right=False)
     fig.add_legend()
     fig.legend.set_title(hue)
