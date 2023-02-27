@@ -82,6 +82,25 @@ class MC_object():
                 n_frac_used = np.count_nonzero(~np.isnan(output.physical_doses))
                 plans[i] = n_frac_used
             end_plot = afs.plot_hist(plans, n_frac, plot_sets)
+
+        if self.algorithm_simulation == 'NEW':
+            # Set parameters
+            u = 0  # mean of normal distribution
+            sigma = 1  # standard deviation of normal distribution
+            shape = 2  # shape parameter of gamma distribution
+            scale = 3  # scale parameter of gamma distribution
+            n = 6  # number of samples in each array
+            m = 10  # number of arrays to generate
+
+            # Vectorized implementation
+            u_mean = np.random.normal(u, sigma, size=(m, 1))
+            std = np.random.gamma(shape, scale, size=(m, 1))
+            samples = np.random.normal(u_mean, std, size=(m, n))
+
+            for i in range(m):
+                self.keys_model.sparing_factors = samples[i]
+                output = afx.multiple(self.algorithm, self.keys_model, self.settings)
+                plans[i] = output.fractions_used
             
         elif self.algorithm_simulation == 'fraction':
             # plot applied dose, sparing factor dependent on fraction
