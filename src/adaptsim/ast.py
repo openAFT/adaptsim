@@ -100,7 +100,6 @@ class MC_object():
             for i in range(m):
                 self.keys_model.sparing_factors = samples[i]
                 output = afx.multiple(self.algorithm, self.keys_model, self.settings)
-                plans[i] = output.fractions_used
             
         elif self.algorithm_simulation == 'fraction':
             # plot applied dose, sparing factor dependent on fraction
