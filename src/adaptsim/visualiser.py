@@ -172,7 +172,7 @@ def plot_val_all(sfs, states, data_full, fractions, label, colmap='turbo', plot_
     fig.supylabel(rf'$B^{T_text}$ [Gy]')
 
     # fig.tight_layout()
-    fig.subplots_adjust(wspace=0.3, hspace=0.3, bottom=0.13, right=0.92)
+    fig.subplots_adjust(wspace=0.3, hspace=0.3, bottom=0.13, left=0.15,right=0.92)
     fig.colorbar(mappable=im, ax=axs.tolist(), label=label)
 
     return fig
