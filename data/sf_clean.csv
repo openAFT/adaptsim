@@ -1,4 +1,4 @@
-Patient,Limiting,OAR,Target,Fraction,Distance,d_N,d_T,sparing_factor,main_oar
+Patient,Limiting,OAR,Target,Fraction,Distance,d_N,d_T,sparing_factor,dose-limiting OAR
 1,1,Stomach,Pancreas,0,0.00,29.83,33.14,0.90,Stomach
 1,1,Stomach,Pancreas,1,-0.17,29.63,28.52,1.04,Stomach
 1,1,Stomach,Pancreas,2,0.00,28.81,28.89,1.00,Stomach
@@ -71,12 +71,12 @@ Patient,Limiting,OAR,Target,Fraction,Distance,d_N,d_T,sparing_factor,main_oar
 12,1,Duodenum,Adrenal Glands,3,0.00,28.81,32.43,0.89,Duodenum
 12,1,Duodenum,Adrenal Glands,4,0.00,28.17,32.13,0.88,Duodenum
 12,1,Duodenum,Adrenal Glands,5,0.00,28.21,32.47,0.87,Duodenum
-13,1,Duodenum,Adrenal Glands,0,0.97,22.94,40.82,0.56,Duodenum
-13,1,Duodenum,Adrenal Glands,1,0.95,21.83,40.74,0.54,Duodenum
-13,1,Duodenum,Adrenal Glands,2,0.93,22.29,40.17,0.55,Duodenum
-13,1,Duodenum,Adrenal Glands,3,0.99,20.93,40.38,0.52,Duodenum
-13,1,Duodenum,Adrenal Glands,4,1.50,17.94,40.71,0.44,Duodenum
-13,1,Duodenum,Adrenal Glands,5,1.34,18.51,40.62,0.46,Duodenum
+13,1,Stomach,Adrenal Glands,0,0.20,27.42,32.68,0.84,Stomach
+13,1,Stomach,Adrenal Glands,1,0.27,27.89,32.61,0.86,Stomach
+13,1,Stomach,Adrenal Glands,2,0.00,28.90,30.30,0.95,Stomach
+13,1,Stomach,Adrenal Glands,3,0.25,28.45,32.21,0.88,Stomach
+13,1,Stomach,Adrenal Glands,4,0.15,29.55,32.23,0.92,Stomach
+13,1,Stomach,Adrenal Glands,5,0.10,27.97,33.22,0.84,Stomach
 14,1,Stomach,Adrenal Glands,0,0.00,19.97,20.08,0.99,Stomach
 14,1,Stomach,Adrenal Glands,1,0.00,19.40,20.08,0.97,Stomach
 14,1,Stomach,Adrenal Glands,2,0.00,19.03,20.06,0.95,Stomach
@@ -95,12 +95,12 @@ Patient,Limiting,OAR,Target,Fraction,Distance,d_N,d_T,sparing_factor,main_oar
 16,1,Duodenum,Adrenal Glands,3,1.14,23.62,36.57,0.65,Duodenum
 16,1,Duodenum,Adrenal Glands,4,0.88,23.12,36.32,0.64,Duodenum
 16,1,Duodenum,Adrenal Glands,5,1.19,22.20,36.73,0.60,Duodenum
-17,1,Stomach,Adrenal Glands,0,0.20,27.42,32.68,0.84,Stomach
-17,1,Stomach,Adrenal Glands,1,0.27,27.89,32.61,0.86,Stomach
-17,1,Stomach,Adrenal Glands,2,0.00,28.90,30.30,0.95,Stomach
-17,1,Stomach,Adrenal Glands,3,0.25,28.45,32.21,0.88,Stomach
-17,1,Stomach,Adrenal Glands,4,0.15,29.55,32.23,0.92,Stomach
-17,1,Stomach,Adrenal Glands,5,0.10,27.97,33.22,0.84,Stomach
+17,1,Duodenum,Adrenal Glands,0,0.97,22.94,40.82,0.56,Duodenum
+17,1,Duodenum,Adrenal Glands,1,0.95,21.83,40.74,0.54,Duodenum
+17,1,Duodenum,Adrenal Glands,2,0.93,22.29,40.17,0.55,Duodenum
+17,1,Duodenum,Adrenal Glands,3,0.99,20.93,40.38,0.52,Duodenum
+17,1,Duodenum,Adrenal Glands,4,1.50,17.94,40.71,0.44,Duodenum
+17,1,Duodenum,Adrenal Glands,5,1.34,18.51,40.62,0.46,Duodenum
 18,1,Bowel,Adrenal Glands,0,0.00,28.31,32.12,0.88,Bowel
 18,1,Bowel,Adrenal Glands,1,0.00,29.28,32.00,0.92,Bowel
 18,1,Bowel,Adrenal Glands,2,0.00,28.63,32.79,0.87,Bowel
@@ -251,12 +251,12 @@ Patient,Limiting,OAR,Target,Fraction,Distance,d_N,d_T,sparing_factor,main_oar
 20,0,Duodenum,Adrenal Glands,3,4.98,4.09,41.37,0.10,Bowel
 20,0,Duodenum,Adrenal Glands,4,3.42,6.34,41.21,0.15,Bowel
 20,0,Duodenum,Adrenal Glands,5,3.86,7.88,40.93,0.19,Bowel
-13,0,Bowel,Adrenal Glands,0,0.83,22.50,32.68,0.69,Duodenum
-13,0,Bowel,Adrenal Glands,1,0.74,22.32,32.61,0.68,Duodenum
-13,0,Bowel,Adrenal Glands,2,0.67,23.47,30.30,0.77,Duodenum
-13,0,Bowel,Adrenal Glands,3,0.90,21.90,32.21,0.68,Duodenum
-13,0,Bowel,Adrenal Glands,4,1.25,20.46,32.23,0.63,Duodenum
-13,0,Bowel,Adrenal Glands,5,1.33,21.51,33.22,0.65,Duodenum
+13,0,Bowel,Adrenal Glands,0,0.83,22.50,32.68,0.69,Stomach
+13,0,Bowel,Adrenal Glands,1,0.74,22.32,32.61,0.68,Stomach
+13,0,Bowel,Adrenal Glands,2,0.67,23.47,30.30,0.77,Stomach
+13,0,Bowel,Adrenal Glands,3,0.90,21.90,32.21,0.68,Stomach
+13,0,Bowel,Adrenal Glands,4,1.25,20.46,32.23,0.63,Stomach
+13,0,Bowel,Adrenal Glands,5,1.33,21.51,33.22,0.65,Stomach
 31,0,Stomach,Adrenal Glands,0,0.00,29.78,30.33,0.98,None
 31,0,Stomach,Adrenal Glands,1,0.23,28.79,35.28,0.82,None
 31,0,Stomach,Adrenal Glands,2,0.30,25.98,28.62,0.91,None
