@@ -16,16 +16,16 @@ def B_noaft(sf, d, para):
     oar_bed = np.sum(b)
     return oar_bed
 
-def B_aft(algorithm, para):
+def B_aft(algorithm, para, sets):
     # BED^N calculation for 1 therapy
-    oar_bed = multiple(algorithm, para)[0]
-    return oar_bed
+    output = multiple(algorithm, para, sets)
+    return output.oar_sum
 
 def d_T(n, abt, goal):
     dose = (np.sqrt(n*abt*(n*abt+4*goal)) - n*abt) / (2*n)
     return dose
 
-def Bn(n_max, para, n_samples):
+def Bn(n_max, para, n_samples, sets):
     # BED^N calculation for list of fractions
     # and sampled reps times for each fraction
     # returns 
@@ -45,7 +45,7 @@ def Bn(n_max, para, n_samples):
             sf_list = np.random.normal(mu,
                 sigma, n_max+1)
             para['sparing_factors'] = sf_list
-            BED_list_aft[j] = B_aft('oar', para)
+            BED_list_aft[j] = B_aft('oar', para, sets)
             BED_list_noaft[j] = B_noaft(sf_list, physical_dose, para)
         BED_aft[i] = np.mean(BED_list_aft)
         BED_noaft[i] = np.mean(BED_list_noaft)
@@ -110,77 +110,107 @@ def c_find_root(n_targ, sf, func):
     c_opt = opt.root(thing, 1).x
     return c_opt[0]
 
+mu, sigma = 0.72, 0.1
 params = {
-            'number_of_fractions': 0,
-            'fraction': 0,
-            'sparing_factors': None,
-            'fixed_prob': 1,
-            'fixed_mean': 0.9,
-            'fixed_std': 0.01,
-            'tumor_goal': 72,
-            'accumulated_oar_dose': 0,
-            'accumulated_tumor_dose': 0,
-            'C': None,
-            'alpha': None,
-            'beta': None,
-            'max_dose': 22.3,
-            'min_dose': 0,
-            'abt': 10,
-            'abn': 3
-            }
+        'number_of_fractions': 0,
+        'fraction': 0,
+        'sparing_factors': None,
+        'prob_update': 0,
+        'fixed_mean': mu,
+        'fixed_std': sigma,
+        'tumor_goal': 72,
+        'accumulated_oar_dose': 0,
+        'accumulated_tumor_dose': 0,
+        'C': None,
+        'max_dose': -1,
+        'min_dose': 0,
+        'abt': 10,
+        'abn': 3,
+        'dose_stepsize': 0.5,
+        'state_stepsize': 0.5,
+        }
+settings = {
+        'dose_stepsize': 1,
+        'state_stepsize': 1,
+        'sf_low': mu - 2*sigma,
+        'sf_high': mu + 2*sigma,
+        'sf_stepsize': 0.05,
+        'sf_prob_threshold': 0,
+        'inf_penalty': 1e5,
+        'plot_policy': 0,
+        'plot_values': 0,
+        'plot_remains': 0,
+        }
 
 N_max = 12
-N_target = 5
+N_target = 4
 C_list = np.arange(1,7,0.05)
-num_samples = 1000
-filename = 'data/BED_t72_n12_1000.hdf5'
+num_samples = 50
+filename = 'data/BED_sf_0_75_t72.hdf5'
 plot = 1
 write = 0
 
 if write:
-    bn = Bn(N_max, params, num_samples)
+    bn = Bn(N_max, params, num_samples, settings)
     with hdf.File(filename, 'w') as hf:
         hf.create_dataset('bn', data=bn)
 else:
     with hdf.File(filename, 'r') as hf:
         bn = hf['bn'][:]
 
-valid_c = c_find(N_max, N_target, C_list, bn)
-print(valid_c)
+# valid_c = c_find(N_max, N_target, C_list, bn)
+# print(valid_c)
 
 instance = FitClass()
 instance.para = params
 sf_fit, _ = Bn_fit(instance.B_func, bn[0], bn[2])
 sf_fit_no, _ = Bn_fit(instance.B_func, bn[0], bn[1])
-x = np.arange(2, N_max, 0.3)
-c = valid_c[2][0]
-c_no = valid_c[1][0]
+x = np.arange(2, N_max+1, 0.3)
+# c = valid_c[2][0]
+# c_no = valid_c[1][0]
 
-c_opt_no = c_find_root(N_target, sf_fit_no, instance.B_func)
-print(c_opt_no)
-# c_opt = c_find_root(N_target, sf_fit, instance.B_func)
-# print(c_opt)
+c_opt = c_find_root(N_target, sf_fit, instance.B_func)
+print('c', c_opt)
+print('sf', sf_fit)
 
 if plot:
-    fn1 = Fn(N_max, c_opt_no, bn)
+    fn1 = Fn(N_max, c_opt, bn)
     # fn2 = Fn(N_max, c, bn)
-    plt.scatter(bn[0], bn[1], label='no aft', marker='x')
-    # plt.scatter(bn[0], bn[2], label='aft', marker='x')
-    plt.scatter(fn1[0], fn1[1], label='noaftlow', marker='1')
+    # plt.scatter(bn[0], bn[1], label='no aft', marker='x')
+    plt.scatter(bn[0], bn[2], label='aft', marker='x')
+    # plt.scatter(fn1[0], fn1[2], label='aft_c_opt', marker='1')
     # plt.scatter(fn2[0], fn2[1], label='aftlow', marker='1')
-    y = instance.B_func(x, sf_fit_no)
-    plt.plot(x, y)
-    y_c = instance.B_func(x, sf_fit_no, c_opt_no)
+    y = instance.B_func(x, sf_fit)
+    plt.plot(x, y, label='aft_sf_fit')
+    y_c = instance.B_func(x, sf_fit, c_opt)
     plt.plot(x, y_c)
+    y_no = instance.B_func(x, sf_fit_no)
+    plt.plot(x, y_no, label='no_aft_sf_fit')
+
+    instance2 = FitClass()
+    instance2.para = params
+    bn2 = instance2.B_func(x, params['fixed_mean'])
+    # plt.plot(x, bn2, label='sigma=mu')
+
+    for i in range(len(bn[0])):
+        print(f'({np.round(bn[0][i],2)}, {np.round(bn[2][i],2)})')
+
+    print('$$$$$$$$$$$$$$$$$$$$$$$')
 
     for i in range(len(y)):
         print(f'({np.round(x[i],2)}, {np.round(y[i],2)})')
 
+    print('$$$$$$$$$$$$$$$$$$$$$$$')
+
     for i in range(len(y)):
         print(f'({np.round(x[i],2)}, {np.round(y_c[i],2)})')
 
-    for i in range(len(bn[0])):
-        print(f'({np.round(bn[0][i],2)}, {np.round(bn[1][i],2)})')
+    print('$$$$$$$$$$$$$$$$$$$$$$$')
+
+    for i in range(len(y)):
+        print(f'({np.round(x[i],2)}, {np.round(y_no[i],2)})')
+
+    print('$$$$$$$$$$$$$$$$$$$$$$$')
 
     plt.ylabel('cost')
     plt.xlabel('fraction $n$')
