@@ -130,7 +130,7 @@ class MC_object():
                 out.value.fractions, self.keys_simulation.plot_index, r'Value $v$', 'viridis', plot_sets)
             if self.settings.plot_remains:
                 end_plot = afs.plot_val_single(out.remains.sf, out.remains.states, out.remains.val,
-                out.remains.fractions, self.keys_simulation.plot_index, 'Expected Remaining Number', 'plasma', plot_sets)
+                out.remains.fractions, self.keys_simulation.plot_index, r'Expected Remaining Number $\varepsilon$', 'plasma', plot_sets)
 
         elif self.algorithm_simulation == 'all_state':
             # plot all policy, values or remaining number of fraction except for the last
@@ -143,7 +143,7 @@ class MC_object():
                 out.value.fractions, r'Value $v$', 'viridis', plot_sets)
             if self.settings.plot_remains:
                 end_plot = afs.plot_val_all(out.remains.sf, out.remains.states, out.remains.val,
-                out.remains.fractions, 'Expected Remaining Number', 'plasma', plot_sets)
+                out.remains.fractions, r'Expected Remaining Number $\varepsilon$', 'plasma', plot_sets)
 
         elif self.algorithm_simulation == 'single_distance':
             selec = self.keys_simulation.data_selection
