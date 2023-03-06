@@ -46,9 +46,3 @@ the command line tool for simulation is then available
 ```
 $ ast [options] -f <patient_model> -s <simulation_file>
 ```
-
-
-```
-$ pip install -U pip setuptools wheel
-$ pip install -r requirements.txt
-```
