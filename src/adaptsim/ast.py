@@ -5,6 +5,7 @@ import adaptfx as afx
 import adaptsim as afs
 import numpy as np
 import sys
+import os
 nme = __name__
 
 class MC_object():
@@ -13,9 +14,9 @@ class MC_object():
     of calculation, invoke keys and define
     calculation settings from file
     """
-    def __init__(self, model_filename):
+    def __init__(self, model_filename_in):
+        model_filename = os.path.abspath(model_filename_in)
         model = afx.RL_object(model_filename)
-
         try: # check if file can be opened
             with open(model_filename, 'r') as f:
                 read_in = f.read()
