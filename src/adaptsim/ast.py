@@ -5,7 +5,6 @@ import adaptfx as afx
 import adaptsim as afs
 import numpy as np
 import sys
-import os
 nme = __name__
 
 class MC_object():
