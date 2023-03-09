@@ -167,12 +167,9 @@ class MC_object():
             afx.aft_error(f'No such simulation: "{self.algorithm_simulation}"', nme)
 
         if self.keys_simulation.save:
-            afs.save_plot(end_plot, self.basename)
+            afx.save_plot(end_plot, self.basename)
         else:
-            self.plot()
-        
-    def plot(self):
-        afx.show_plot()
+            afx.show_plot()
 
 def main():
     """

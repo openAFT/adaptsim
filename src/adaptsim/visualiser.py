@@ -176,8 +176,3 @@ def plot_val_all(sfs, states, data_full, fractions, label, colmap='turbo', plot_
     fig.colorbar(mappable=im, ax=axs.tolist(), label=label)
 
     return fig
-
-def save_plot(fig, basename):
-    fig.savefig(f'{basename}.pdf', format='pdf')
-    plt.clf()
-    plt.close()
