@@ -14,50 +14,36 @@ class MC_object():
     of calculation, invoke keys and define
     calculation settings from file
     """
-    def __init__(self, model_filename_in):
-        model_filename = os.path.abspath(model_filename_in)
+    def __init__(self, model_filename):
         model = afx.RL_object(model_filename)
-        try: # check if file can be opened
-            with open(model_filename, 'r') as f:
-                read_in = f.read()
-            raw_simulation_dict = json.loads(read_in)
-        except TypeError:
-            if isinstance(model_filename, dict):
-                raw_simulation_dict = model_filename
-            else:
-                afx.aft_error(f'"{model_filename}" not a filename or dict', nme)
-        except SyntaxError as syntax_err:
-            afx.aft_error(f'error in "{model_filename}", {syntax_err}', nme)
-        except OSError:
-            afx.aft_error(f'No such file: "{model_filename}"', nme)
-        except ValueError as decode_err:
-            afx.aft_error(f'decode error in "{model_filename}", {decode_err}', nme)
-        except:
-            afx.aft_error(f'error in "{model_filename}", {sys.exc_info()}', nme)
+        with open(model.filename, 'r') as f:
+            read_in = f.read()
+        raw_simulation_dict = json.loads(read_in)
 
         try:
             algorithm_simulation = raw_simulation_dict['algorithm_simulation']
         except KeyError as algo_err:
-            afx.aft_error(f'{algo_err} key missing in: "{model_filename}"', nme)
+            afx.aft_error(f'{algo_err} key missing in: "{model.filename}"', nme)
         else:
             afx.aft_message_info('algorithm simulation:', algorithm_simulation, nme, 1)
 
         try: # check if simulation_keys exists and is a dictionnary
             raw_keys = raw_simulation_dict['keys_simulation']
         except KeyError:
-            afx.aft_error(f'"keys_simulation" is missing in : "{model_filename}"', nme)
+            afx.aft_error(f'"keys_simulation" is missing in : "{model.filename}"', nme)
         else:
             simulation_dict = afx.key_reader(afs.KEY_DICT_SIM, afs.ALL_SIM_DICT, raw_keys, 'sim')
             afx.aft_message_dict('simulation', simulation_dict, nme)
 
         self.algorithm = model.algorithm
+        self.filename = model.filename
+        self.basename = model.basename
         self.log = model.log
         self.log_level = model.log_level
         self.keys_model = model.keys
         self.settings = model.settings
         self.algorithm_simulation = algorithm_simulation
         self.keys_simulation = afx.DotDict(simulation_dict)
-        self.simulation_filename = model_filename
 
 
     def simulate(self):
@@ -182,7 +168,7 @@ class MC_object():
             afx.aft_error(f'No such simulation: "{self.algorithm_simulation}"', nme)
 
         if self.keys_simulation.save:
-            afs.save_plot(end_plot, self.simulation_filename)
+            afs.save_plot(end_plot, self.basename)
         else:
             self.plot()
         

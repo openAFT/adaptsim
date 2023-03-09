@@ -177,8 +177,7 @@ def plot_val_all(sfs, states, data_full, fractions, label, colmap='turbo', plot_
 
     return fig
 
-def save_plot(fig, filename):
-    basename = filename.rsplit('.')[0]
+def save_plot(fig, basename):
     fig.savefig(f'{basename}.pdf', format='pdf')
     plt.clf()
     plt.close()
