@@ -22,7 +22,8 @@ def B_aft(algorithm, para, sets):
     return output.oar_sum
 
 def d_T(n, abt, goal):
-    dose = (np.sqrt(n*abt*(n*abt+4*goal)) - n*abt) / (2*n)
+    # dose = (np.sqrt(n*abt*(n*abt+4*goal)) - n*abt) / (2*n)
+    dose = abt/(2*n) * (np.sqrt(n ** 2 + 4*n*goal/abt) - n)
     return dose
 
 def Bn(n_max, para, n_samples, sets):
@@ -64,18 +65,19 @@ class FitClass:
     def __init__(self):
         pass
 
-    def B_func(self, n, sf, c=None):
+    def B_func(self, n, sf, abt):
         para = self.para
-        d_tumor = d_T(n ,para['abt'], para['tumor_goal'])
-        bed = sf**2 * n * d_tumor * (1/sf - para['abt']/para['abn']) + \
-            sf **2 * para['tumor_goal'] * para['abt']/para['abn']
-        if c == None:
-            return bed
-        else:
-            return bed + c * n
+        d_tumor = d_T(n, abt, para['tumor_goal'])
+        bed = sf**2 * n * d_tumor * (1/sf - abt/para['abn']) + \
+            sf **2 * para['tumor_goal'] * abt/para['abn']
+        return bed
+    
+    def B_func_c(self, n, sf, abt, c):
+        return self.B_func(self, n, sf, abt) + c * n
 
 def Bn_fit(func, x, y):
     popt, _ = opt.curve_fit(func, x, y)
+    print(popt)
     return popt
 
 def Fn(n_max, c, bed):
@@ -110,7 +112,7 @@ def c_find_root(n_targ, sf, func):
     c_opt = opt.root(thing, 1).x
     return c_opt[0]
 
-mu, sigma = 0.72, 0.1
+mu, sigma = 0.72, 0.4
 params = {
         'number_of_fractions': 0,
         'fraction': 0,
@@ -145,10 +147,10 @@ settings = {
 N_max = 12
 N_target = 4
 C_list = np.arange(1,7,0.05)
-num_samples = 50
+num_samples = 60
 filename = 'data/BED_sf_0_75_t72.hdf5'
 plot = 1
-write = 0
+write = 1
 
 if write:
     bn = Bn(N_max, params, num_samples, settings)
@@ -163,8 +165,8 @@ else:
 
 instance = FitClass()
 instance.para = params
-sf_fit, _ = Bn_fit(instance.B_func, bn[0], bn[2])
-sf_fit_no, _ = Bn_fit(instance.B_func, bn[0], bn[1])
+sf_fit, abt_fit = Bn_fit(instance.B_func, bn[0], bn[2])
+sf_fit_no, abt_fit_no = Bn_fit(instance.B_func, bn[0], bn[1])
 x = np.arange(2, N_max+1, 0.3)
 # c = valid_c[2][0]
 # c_no = valid_c[1][0]
@@ -180,37 +182,37 @@ if plot:
     plt.scatter(bn[0], bn[2], label='aft', marker='x')
     # plt.scatter(fn1[0], fn1[2], label='aft_c_opt', marker='1')
     # plt.scatter(fn2[0], fn2[1], label='aftlow', marker='1')
-    y = instance.B_func(x, sf_fit)
+    y = instance.B_func(x, sf_fit, abt_fit)
     plt.plot(x, y, label='aft_sf_fit')
-    y_c = instance.B_func(x, sf_fit, c_opt)
-    plt.plot(x, y_c)
-    y_no = instance.B_func(x, sf_fit_no)
+    # y_c = instance.B_func_c(x, sf_fit, abt_fit, c_opt)
+    # plt.plot(x, y_c, label='fit_c_opt')
+    y_no = instance.B_func(x, sf_fit_no, abt_fit_no)
     plt.plot(x, y_no, label='no_aft_sf_fit')
 
-    instance2 = FitClass()
-    instance2.para = params
-    bn2 = instance2.B_func(x, params['fixed_mean'])
+    # instance2 = FitClass()
+    # instance2.para = params
+    # bn2 = instance2.B_func(x, params['fixed_mean'])
     # plt.plot(x, bn2, label='sigma=mu')
 
-    for i in range(len(bn[0])):
-        print(f'({np.round(bn[0][i],2)}, {np.round(bn[2][i],2)})')
+    # for i in range(len(bn[0])):
+    #     print(f'({np.round(bn[0][i],2)}, {np.round(bn[2][i],2)})')
 
-    print('$$$$$$$$$$$$$$$$$$$$$$$')
+    # print('$$$$$$$$$$$$$$$$$$$$$$$')
 
-    for i in range(len(y)):
-        print(f'({np.round(x[i],2)}, {np.round(y[i],2)})')
+    # for i in range(len(y)):
+    #     print(f'({np.round(x[i],2)}, {np.round(y[i],2)})')
 
-    print('$$$$$$$$$$$$$$$$$$$$$$$')
+    # print('$$$$$$$$$$$$$$$$$$$$$$$')
 
-    for i in range(len(y)):
-        print(f'({np.round(x[i],2)}, {np.round(y_c[i],2)})')
+    # for i in range(len(y)):
+    #     print(f'({np.round(x[i],2)}, {np.round(y_c[i],2)})')
 
-    print('$$$$$$$$$$$$$$$$$$$$$$$')
+    # print('$$$$$$$$$$$$$$$$$$$$$$$')
 
-    for i in range(len(y)):
-        print(f'({np.round(x[i],2)}, {np.round(y_no[i],2)})')
+    # for i in range(len(y)):
+    #     print(f'({np.round(x[i],2)}, {np.round(y_no[i],2)})')
 
-    print('$$$$$$$$$$$$$$$$$$$$$$$')
+    # print('$$$$$$$$$$$$$$$$$$$$$$$')
 
     plt.ylabel('cost')
     plt.xlabel('fraction $n$')
